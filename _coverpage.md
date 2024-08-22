@@ -1,4 +1,4 @@
-![logo](_media/fish.svg)
+![logo](https://github.com/blueyuyu/fishNote/blob/main/_media/Fish.svg)
 
 # 欢迎来到 宇智波鱼鱼鱼 的编程笔记 <small>1.0</small>
 
