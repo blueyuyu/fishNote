@@ -8,5 +8,5 @@
 - 喜欢bibi的鱼鱼酱
 - 
 
-[GitHub](https://github.com/docsifyjs/docsify/)
+[GitHub](https://github.com/blueyuyu/fishNote)
 [Get Started](#docsify)
