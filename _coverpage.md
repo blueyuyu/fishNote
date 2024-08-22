@@ -9,4 +9,4 @@
 - 
 
 [GitHub](https://github.com/blueyuyu/fishNote)
-[Get Started](#docsify)
+[Get Started](/InterviewQuestions/2024前端面试题(整理版).md)
