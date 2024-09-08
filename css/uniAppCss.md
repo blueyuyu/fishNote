@@ -34,6 +34,19 @@ content: ['./pages/**/*.{html,ts,jsx,tsx,vue,js}', './main.js', './App.vue', './
 链接：https://blog.csdn.net/LlanyW/article/details/132466730
 
 
+# 跳转的注意事项
+    // 1. url 用的绝对的地址，用 / 开始，从 /pages/  ,open-type = "" 的设定 
+    // 2. 用api跳转，也是需要区分页面的
+    
+    <button @click="getLogin">去登录</button>
+    <navigator url="/pages/login/login">login</navigator>
+    
+    const getLogin = () => {
+      uni.reLaunch({
+        url: '/pages/login/login'
+      });
+    };
+    
 
 
 
