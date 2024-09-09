@@ -1,4 +1,4 @@
-##  🌴Hbuilder创建的uniapp工程，使用tailwindcss最优雅的方式
+##  🌴 Hbuilder创建的uniapp工程，使用tailwindcss最优雅的方式
 
 ### 可行方法一
 
@@ -61,7 +61,7 @@ content: ['./pages/**/*.{html,ts,jsx,tsx,vue,js}', './main.js', './App.vue', './
 
 
 
-##  🌴跳转的注意事项
+##  🌴 跳转的注意事项
 
 ### 跳转写法
 
@@ -103,7 +103,7 @@ const props = defineProps({
 
 
 
-##  🌴关于uni-app 本身钩子的导入情况
+##  🌴 关于uni-app 本身钩子的导入情况
 
 ```
 import { onLoad } from '@dcloudio/uni-app';
@@ -115,7 +115,7 @@ import { onLoad } from '@dcloudio/uni-app';
 
 
 
-##  🌴uni-app 修改组件内部样式
+##  🌴 uni-app 修改组件内部样式
 
 ```
 :deep(.uni-list-item__content-title) {
@@ -134,7 +134,7 @@ import { onLoad } from '@dcloudio/uni-app';
 
 
 
-#  ❔等待研究
+#  ❔ 等待研究
 
 ## uv-ui 是怎么实现的？ 他是封装uni-app的原生来实现的吗？
 

@@ -11,9 +11,9 @@
 > <u>说明</u>：基于[docsify](https://docsify.js.org/#/zh-cn/?id=docsify)文档网站生成器记录所学知识，便于日后复习与总结。
 >
 > 笔记地址：[鱼鱼鱼的笔记](https://blueyuyu.github.io/fishNote/)
+> 文档中有任何错误，请提issue或者pr
 >
-> email: ublueyuyuyu@gmail.com (文档中有任何错误，都可以发邮件告诉我)
-
+> email: ublueyuyuyu@gmail.com （想要加入前端项目的面试题编辑的宝子，请邮件告诉我）
 
 
 ##  🧡  框架原理
@@ -65,7 +65,9 @@
 ##   💙  推荐学习项目目录（等待整理）
 
 ------
+[非常完整的本人非常喜欢的项目或者教程](/recommend/withTutorial.md)
 
+[视频讲解的教程项目](/recommend/theMostRe.md)
 
 ##  🐟  鱼鱼鱼的碎碎念~~~
 
