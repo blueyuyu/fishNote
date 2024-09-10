@@ -8,5 +8,5 @@
 - 喜欢bibi的鱼鱼酱
 
 
-[GitHub](https://github.com/blueyuyu/fishNote)
+[GitHub](https://github.com/blueyuyu)
 [Get Started](/InterviewQuestions/2024前端面试题(整理版).md)
