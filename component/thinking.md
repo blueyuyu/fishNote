@@ -23,3 +23,7 @@ uv-tag 作者，在组件封装的思路上和我有不同；
 - **事件命名**
 
 所有事件名使用 kebab-case 格式,并以动词结尾。如 dom-resize、api-load。
+
+
+
+css样式命名
