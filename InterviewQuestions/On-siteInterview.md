@@ -16,18 +16,21 @@ Align-content: flex-start | flex-end | center | space-between | space-around | s
 多根轴线的对齐方式
 
 Align-items: center | 等
+
+
+关于flex:
 Flex: flex-grow | flex-shrink | flex-basis   0 1 auto
 auto (1 1 auto) 和 none (0 0 auto)
-flex-grow属性定义项目的放大比例，默认为0
+flex-grow 属性定义项目的放大比例，默认为0
 flex-shrink 定义了项目的缩小比例，默认为1(空间不足会压缩)设置为0
-flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main size）
+flex-basis 属性定义了在分配多余空间之前，项目占据的主轴空间（main size）
 ```
 
 
 
 #### 代码回退
 
-Git reset | Git revert(推荐使用)
+Git reset | **Git revert**(推荐使用)
 
 
 
@@ -42,6 +45,23 @@ ls     查看目录；
 cat  查看文件；
 
 vim   编辑器编辑文件
+
+#### linux部署到服务器
+
+1. 先把dist 丢进html文件夹里
+2. Nginx.conf里配置端口
+
+```
+server {
+listen 8001;
+server_name localhost;
+location / {
+root html/dist;
+index index.html index.htm;
+try_files $uni $uni /index.html;
+}
+}
+```
 
 
 
@@ -65,9 +85,7 @@ Split() 指定的分隔符将一个字符串分割成一个数组
 		pre.push(cur);
 
 	}
-
 	return pre;
-
 }, [])
 
 
@@ -89,7 +107,17 @@ console.log(uniqueArr); // 输出 [1, 2, 3, 4, 5]
 
 #### 对keep-alive 组件的一些理解？
 
- 
+ 它的功能是在多个组件间动态切换时缓存被移除的组件实例。
+
+```
+<KeepAlive include="a,b">
+  <component :is="view" />
+</KeepAlive>
+
+
+```
+
+
 
 #### 考了代码执行顺序，事件循环相关的？
 
@@ -133,9 +161,9 @@ vue里有哪些内置组件？（回答keep-alive）
 
 11. 让你实现一个dialog拖拽的自定义指令？该怎么实现？（给了些思路）
 
- 
 
- 
+
+
 
 12. 路由有哪些守卫？组件内部的一些首位？
 
@@ -155,9 +183,9 @@ vue里有哪些内置组件？（回答keep-alive）
 
 20. 代码如何优化？打包做了什么优化？
 
- 
 
- 
+
+
 
 webpack 打包优化
 
@@ -235,7 +263,7 @@ terser 启动多线程
 
 21. 页面渲染10万条数据？（可能是虚拟列表）
 
- 
+
 
 10万条一般还是建议做分页处理的。这里问的是虚拟列表，个人感觉虚拟列表没必要掌握，属于极端情况。
 
@@ -269,20 +297,161 @@ terser 启动多线程
 
 ####  ❗ toRef与toRefs的区别是什么？
 
+toRefs 批量处理对象中的所有属性,第一层，变成响应式
+
+toRef() 需要传参，且只能将一个属性变成响应式
+
+```
+const state = reactive({
+  foo: 1,
+  bar: 2
+})
+
+// 双向 ref，会与源属性同步
+const fooRef = toRef(state, 'foo')
+
+// 更改该 ref 会更新源属性
+fooRef.value++
+console.log(state.foo) // 2
+
+// 更改源属性也会更新该 ref
+state.foo++
+console.log(fooRef.value) // 3
+```
+
+```
+const state = reactive({
+  foo: 1,
+  bar: 2
+})
+
+const a = {...toRefs(state)}
+```
+
+
+
 ####  ❗ Render与template的区别是什么？Render来写slot该怎么写？
 
-3. NextTick() 在事件循环中属于异步的微任务，似乎是本轮循环执行的操作？
+(用h函数构造组件的写法，我还是有点不懂！！！)
+
+template 使用 HTML 模板语法来描述 UI 结构。
+render 函数使用 JavaScript 代码来创建 VNode，描述 UI 结构。
+
+**关于render中的slot**
+
+```
+// 基本用法
+render() {
+  const { h } = Vue;
+  return h('div', {}, this.$slots.default());
+}
+
+// 具名插槽
+render() {
+  const { h } = Vue;
+  return h('div', {}, [
+    h('header', {}, this.$slots.header()),
+    h('main', {}, this.$slots.default()),
+    h('footer', {}, this.$slots.footer()),
+  ]);
+}
+
+// 作用域
+render() {
+  const { h } = Vue;
+  return h('div', {}, [
+    this.$slots.header({ msg: 'Hello' }),
+    this.$slots.default({ count: this.count }),
+    this.$slots.footer(),
+  ]);
+}
+
+// 使用
+<child-component>
+  <template #header="{ msg }">
+    <h1>{{ msg }}</h1>
+  </template>
+  <template #default="{ count }">
+    <p>The count is: {{ count }}</p>
+  </template>
+  <template #footer>
+    <p>This is the footer</p>
+  </template>
+</child-component>
+```
 
 
-4. 10人两两握手，一共握手几次？
+
+**下面是关于h函数的代码**
+
+```
+<script lang="ts">
+import { h } from "vue";
+export default {
+  props: ["columns_data", "columns"],
+  setup(props) {
+    const createColumns = (columns) => {
+      if (!columns.length) return undefined;
+      return columns.map((column) => {
+        return h(
+          ElTableColumn,
+          { prop: column.prop, label: column.label },
+          column.childColumns
+            ? { default: () => createColumns(column.childColumns) }
+            : undefined,
+        );
+      });
+    };
+    return () => {
+      return h(
+        ElTable,
+        {
+          data: props.columns_data,
+          border: true,
+          height: "100%",
+        },
+        () => createColumns(props.columns),
+      );
+    };
+  },
+};
+</script>
+```
 
 
-5. 关于webpack打包了解多少？
+
+NextTick() 在事件循环中属于异步的微任务，似乎是本轮循环执行的操作？
+
+10人两两握手，一共握手几次？
+
+###  ❗ ❗ 关于webpack打包了解多少？
+
+```
+配置一些常见的loader
+
+style-loader: 将css添加到DOM的内联样式标签style里
+css-loader :允许将css文件通过require的方式引入，并返回css代码
+less-loader: 处理less
+sass-loader: 处理sass
+postcss-loader: 用postcss来处理CSS
+autoprefixer-loader: 处理CSS3属性前缀，已被弃用，建议直接使用postcss
+file-loader: 分发文件到output目录并返回相对路径
+url-loader: 和file-loader类似，但是当文件小于设定的limit时可以返回一个Data Url
+html-minify-loader: 压缩HTML
+babel-loader :用babel来转换ES6文件到ES
+
+HtmlWebpackPlugin
+mini-css-extract-plugin
+```
+
+Vite打包的优化策略了解多少？
 
 
-6. Vite打包的优化策略了解多少？
 
-7. Ts有哪些类型？给你一个老项目，发现启动不了？怎么分析？
+Ts有哪些类型？
+
+给你一个老项目，发现启动不了？怎么分析？
+
 
 
 
@@ -294,17 +463,59 @@ terser 启动多线程
 
 ####  ❗  如何实现多个标签页之间的通讯
 
-Ø 使用LocalStorage或SessionStorage来进行通讯。当一个标签页修改了存储的数据时，其他标签页可以监听Storage事件来获取最新的数据。
+参考文章：https://blog.csdn.net/AdminGuan/article/details/134076898
+
+-  使用LocalStorage或SessionStorage来进行通讯。
+
+当一个标签页修改了存储的数据时，其他标签页可以监听Storage事件来获取最新的数据。
+
+```
+
+/* 在一个标签页中写入数据到 LocalStorage 或 SessionStorage */
+localStorage.setItem('shareData', '标签页111');
+// sessionStorage.setItem('shareData', '标签页111');
+ 
+/* 在其他标签页中监听存储事件，并获取更新的数据 */
+window.addEventListener('storage', function(event) {
+  if (event.key === 'shareData') {
+    const newData = event.newValue;
+    console.log('收到的更新数据：', newData);
+  }
+});
+ 
+/* 在另一个标签页中更新数据到 LocalStorage 或 SessionStorage */
+localStorage.setItem('shareData', '标签页222');
+```
 
  
 
-Ø 使用WebSocket：WebSocket可以实现实时双向通讯，不同标签页可以通过WebSocket
+- #### Shared Worker
 
+  Shared Worker 是一种在多个标签页之间共享的后台线程。标签页可以通过 SharedWorker 进行通信，发送消息和接收消息。
+
+```
+//在发送消息的标签页中
+/* 创建一个 SharedWorker */
+const worker = new SharedWorker('worker.js');
  
+// 发送消息
+worker.port.postMessage('标签页111');
 
-Ø 与服务端建立连接，实现多个标签页之间的通讯。
+// 在共享的 Worker 脚本文件 worker.js 中
+/* 监听连接事件 */
+self.onconnect = function(event) {
+  const port = event.ports[0];
+  // 监听消息事件
+  port.onmessage = function(event) {
+    const newData = event.data;
+    console.log('收到的更新数据：', newData);
+  };
+  // 发送消息
+  port.postMessage('你好啊！Worker');
+};
+```
 
- 
+
 
 ####  ❗  如何监听到页面localStoarge的修改？
 
@@ -419,9 +630,9 @@ export default {
 
 2. 配合router组件里的meta:{} 设置，是否缓存组件，只有有表单的才触发缓存机制，其他的不进行缓存。
 
- 
 
- 
+
+
 
 如果是已经缓存的组件：
 
@@ -736,7 +947,7 @@ Box-sizing: border-box | content-box
 
 
 
-###  🍭 匿名公司
+###  🍭 匿名公司1
 
 #### 线上bug处理
 
@@ -821,3 +1032,16 @@ v-if和v-show
 
 
 #### 动态组件设计思路或者实现
+
+
+
+
+
+###  🌼  匿名公司 2
+
+#### 如何不使用symbol，给某个对象一个唯一的，不重复的标识？
+
+
+
+#### 如何把一个二进制数据转化为十进制？
+
