@@ -1,5 +1,7 @@
 ## 前端现场面试
 
+永远记住，不要打逆风局，不要打逆风局 ！！
+
 
 
 ### 🍋 柠檬云财税
@@ -337,7 +339,7 @@ const a = {...toRefs(state)}
 template 使用 HTML 模板语法来描述 UI 结构。
 render 函数使用 JavaScript 代码来创建 VNode，描述 UI 结构。
 
-**关于render中的slot**
+**关于render中的slot，slot.default**
 
 ```
 // 基本用法
@@ -517,7 +519,7 @@ self.onconnect = function(event) {
 
 
 
-####  ❗  如何监听到页面localStoarge的修改？
+####  ❗  如何监听到页面localStorage的修改？
 
 **当存储区域（localStorage 或 sessionStorage）被修改时，将触发 storage 事件****。**
 
@@ -828,6 +830,10 @@ uni.getSysteminfo({
 
 **px = (screenWidth \* rpx) / 750**
 
+```
+设计稿 1px / 设计稿基准宽度 = 框架样式 1rpx / 750rpx
+```
+
 
 
 软件工程三要素：（软件的生命周期）
@@ -1044,4 +1050,14 @@ v-if和v-show
 
 
 #### 如何把一个二进制数据转化为十进制？
+
+
+
+Echarts的原理是啥？
+
+
+
+WebSocket
+
+
 
