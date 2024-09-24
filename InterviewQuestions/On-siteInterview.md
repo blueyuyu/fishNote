@@ -1047,17 +1047,258 @@ v-if和v-show
 
 #### 如何不使用symbol，给某个对象一个唯一的，不重复的标识？
 
+- UUID
 
+  ```
+  const uuid = crypto.randomUUID();
+  const obj = {
+    id: uuid,
+    // 其他属性
+  };
+  ```
+
+  ​
+
+- 使用时间戳或其他唯一值
+
+  ```
+  const id = Date.now().toString();
+  const obj = {
+    id,
+    // 其他属性
+  };
+  ```
+
+  ​
 
 #### 如何把一个二进制数据转化为十进制？
 
+```
+const a = 111001;
+
+function toTenFn(num) {
+    const arr = (num + '').split('').reverse();
+    console.log('arr', arr);
+    let result = 0;
+    for (let i = 0; i < arr.length; i++) {
+    result += arr[i] * Math.pow(2, i);
+    }
+    return result;
+}
+```
 
 
-Echarts的原理是啥？
+
+#### ts中如何借助类来实现接口？
+
+```
+export default class Carousel extends React.Component<Props, State> {}
+```
+
+```
+// props的类型
+export default class Props {
+  public children: Array<React.ReactElement<any>> | React.ReactElement<any> | never[] = []
+  public speed: number = 500
+  public height: number = 160
+  public animation: string = 'easeInOutQuad'
+  public isAuto: boolean = true
+  public autoPlayInterval: number = 4500
+  public afterChange: () => {}
+  public beforeChange: () => {}
+  public selesctedColor: string
+  public showDots: boolean = true
+}
+```
+
+```
+public static defaultProps = new Props()
+```
+
+#### Echarts的原理是啥？
+
+```
+
+```
 
 
 
-WebSocket
+#### WebSocket
+
+```
+
+```
 
 
+
+#### element组件里有树状图，如何将数组结构转化？
+
+```
+const flatArray = [
+  { id: 1, pid: null, name: '根节点' },
+  { id: 2, pid: 1, name: '子节点 1' },
+  { id: 3, pid: 1, name: '子节点 2' },
+  { id: 4, pid: 2, name: '孙节点 1' },
+  { id: 5, pid: 3, name: '孙节点 2' }
+];
+
+
+const data = [
+ {
+    value: '1',
+    label: 'Level one 1',
+    children: [
+      {
+        value: '1-1',
+        label: 'Level two 1-1',
+        children: [
+          {
+            value: '1-1-1',
+            label: 'Level three 1-1-1',
+          },
+        ],
+      },
+    ],
+  },
+]
+```
+
+
+
+```
+export function intoTree(data, pid) {
+  const arr1 = []
+  data.forEach(item => {
+    if (item.pid === pid) {
+      // console.log('item.pid', item.pid)
+      // 条件成立，把children给他写上
+      // const obj = {}
+      // 追加属性
+      item.label = item.name
+      const children = intoTree(data, item.id)
+      if (children.length > 0) {
+        item.children = children
+      }
+      arr1.push(item)
+    }
+  })
+  return arr1
+}
+```
+
+```
+// 扁平数组示例
+const flatArray = [
+  { id: 1, pid: null, name: '根节点' },
+  { id: 2, pid: 1, name: '子节点 1' },
+  { id: 3, pid: 1, name: '子节点 2' },
+  { id: 4, pid: 2, name: '孙节点 1' },
+  { id: 5, pid: 3, name: '孙节点 2' }
+];
+
+// 转换为树形结构的函数
+function buildTree(flatArray) {
+  const map = {};
+  const tree = [];
+
+  // 将每个节点按 ID 存入 map
+  flatArray.forEach(item => {
+    map[item.id] = { ...item, children: [] }; // 初始化每个节点的 children 属性
+  });
+
+  // 构建树形结构
+  flatArray.forEach(item => {
+    if (item.pid === null) {
+      tree.push(map[item.id]); // 根节点
+    } else {
+      map[item.pid].children.push(map[item.id]); // 添加子节点
+    }
+  });
+
+  return tree;
+}
+
+// 使用转换函数
+const treeStructure = buildTree(flatArray);
+console.log(JSON.stringify(treeStructure, null, 2));
+```
+
+ 
+
+#### 前端常见的安全策略？
+
+1. xss攻击
+
+```
+XSS 全称是 Cross Site Scripting(即跨站脚本攻击)，是一种代码注入攻击。为了和 CSS 区分，故叫它XSS。攻击者通过在目标网站上注入恶意脚本，使之在用户的浏览器上运行。利用这些恶意脚本，攻击者可获取用户的敏感信息等，进而危害数据安全。
+
+窃取Cookie。
+监听用户行为，比如输入账号密码后直接发送到黑客服务器。
+修改 DOM 伪造登录表单。
+在页面中生成浮窗广告
+
+
+非持久型 XSS
+用户主动打开恶意的 URL 才能生效，攻击者往往会结合多种手段诱导用户点击。
+
+持久型 XSS
+储存型XSS会把用户输入的数据“储存”在服务器端。
+当攻击者提交一段XSS代码后，被服务器端接收并存储，当所有浏览者访问这个页面时都会被XSS攻击，这种攻击常见于带有用户保存数据的网站功能，如论坛发帖、评论、用户私信等。
+
+DOM型 XSS
+比如在数据传输过程劫持到网络数据包，然后修改里面的 html 文档！这样的劫持方式包括WIFI路由器劫持或者本地恶意软件等。
+```
+
+解决思路：
+
+- 安全策略 csp  Content-Security-Policy
+
+```
+    <meta charset="utf-8" http-equiv="content-security-policy" content="script-src 'self' 'unsafe-eval' chrome-extension-resource; object-src 'none'; style-src 'self' 'unsafe-inline'; ">
+
+```
+
+-  HttpOnly Cookie
+
+  这是预防XSS攻击窃取用户cookie最有效的防御手段。Web应用程序在设置cookie时，将其属性设为HttpOnly，浏览器会禁止页面的JS访问带有HttpOnly属性的Cookie。这样就可以避免该网页的cookie被客户端恶意JavaScript窃取，保护用户cookie信息。
+
+- 输入过滤或转码
+
+  服务端将一些关键的字符进行转码，比如 `<script` 等
+
+  ​
+
+  ​
+
+参考：https://github.com/yuanyuanbyte/Blog/issues/133
+
+
+
+#### object.属性 与 object['']
+
+```
+如果属性名称是静态的,使用点符号方式通常更好;  如果需要动态访问属性,使用方括号方式更合适。
+
+用 . 符号；
+这种方式要求属性名称是一个有效的标识符。
+这种方式在编译时就可以进行类型检查。
+
+用方括号 [];
+这种方式允许使用任意字符串作为属性名称,包括动态生成的属性名称。
+这种方式在编译时无法进行完全的类型检查,需要在运行时进行属性访问。
+这种方式在需要动态访问属性时很有用。
+```
+
+下面是动态存取过程
+
+```
+const user = {
+  name: "John Doe",
+  email: "john.doe@example.com",
+  phone: "123-456-7890"
+};
+
+const propertyToAccess = prompt("Enter the property you want to access:");
+console.log(user[propertyToAccess]); // 根据用户输入动态访问属性
+```
 
