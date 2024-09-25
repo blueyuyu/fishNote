@@ -726,13 +726,39 @@ getParams('http://www.baidu.com/?keyWord=key_word&number=90');
 
 ### 🥕  数字马力
 
-1. Label标签？
+#### Label标签？
 
 HTML <label> 元素（标签）表示用户界面中某个元素的说明。
 
-行内元素，多用于为表单内提供标签（标识），for 属性内填写该label 绑定的元素的id
+行内元素，多用于为表单内提供标签（标识），for 属性内填写该label 绑定的元素的id。
 
- 
+
+
+​     Label 中有两个属性是非常有用的,一个是FOR、另外一个就是ACCESSKEY了。
+
+​    FOR属性
+
+​     功能：表示Label标签要绑定的HTML元素，你点击这个标签的时候，所绑定的元素将获取焦点。
+
+​     用法：
+
+```
+<Label FOR=”InputBox”>姓名</Label><input ID=”InputBox” type=”text”>
+```
+
+​    ACCESSKEY属性：
+
+​     功能：表示访问Label标签所绑定的元素的热键，当您按下热键，所绑定的元素将获取焦点。
+
+​     用法：
+
+```
+<Label FOR=”InputBox” ACCESSKEY＝”N”>姓名</Label><input ID=”InputBox” type=”text”>
+```
+
+​    局限性：accessKey属性所设置的快捷键不能与浏览器的快捷键冲突，否则将优先激活浏览器的快捷键。
+
+
 
 示例代码：
 
@@ -874,9 +900,7 @@ H5:运行范围更广，成本低，但是在手机端优势不高。
 
 略
 
-label标签
 
-（略）上面写了
 
 2. Css的box-sizing的属性，他有什么意义？为什么要设置成border-box，他的意义？
 
@@ -884,7 +908,16 @@ Box-sizing: border-box | content-box
 
 方便计算
 
-3. 什么是js的闭包，概念？闭包的意义？（变量保护）意义！！（从架构的角度）（面试官解释了写插件的时候、不希望别人修改你的变量，不希望别人修改你的插件，闭包可以对变量进行保护，自我防护的机制，别人改不了，你自己也不会污染其他人的代码）
+#### 什么是js的闭包，概念？闭包的意义？
+
+（变量保护）意义！！（从架构的角度）（面试官解释了写插件的时候、不希望别人修改你的变量，不希望别人修改你的插件，闭包可以对变量进行保护，自我防护的机制，别人改不了，你自己也不会污染其他人的代码）
+
+```
+1.重用变量又不能造成全局污染
+2.内层函数访问外层变量
+```
+
+
 
 4. Es6的导出方式？推荐那种？站在架构或者团队的角度分析；
 
@@ -1300,5 +1333,84 @@ const user = {
 
 const propertyToAccess = prompt("Enter the property you want to access:");
 console.log(user[propertyToAccess]); // 根据用户输入动态访问属性
+```
+
+
+
+前端线上bug如何处理？
+
+
+
+#### arguments的理解 ?
+
+**arguments** 是一个对应于传递给函数的参数的类数组对象
+
+function func1(a, b, c) {
+  console.log(arguments[0]);
+  // Expected output: 1
+
+  console.log(arguments[1]);
+  // Expected output: 2
+
+  console.log(arguments[2]);
+  // Expected output: 3
+}
+
+func1(1, 2, 3);
+
+
+
+#### 关于Class中的属性get() 与 set() 方法，请写代码举例？
+
+```
+class Person {
+  constructor(name, age) {
+    this._name = name;
+    this._age = age;
+  }
+
+  get name() {
+    return this._name;
+  }
+
+  set name(newName) {
+    if (newName.length < 3) {
+      console.log("名字太短了,至少需要3个字符!");
+    } else {
+      this._name = newName;
+    }
+  }
+
+  get age() {
+    return this._age;
+  }
+
+  set age(newAge) {
+    if (newAge < 0) {
+      console.log("年龄不能为负数!");
+    } else {
+      this._age = newAge;
+    }
+  }
+}
+
+// 创建一个 Person 实例
+let person = new Person("John", 30);
+
+// 访问 name 属性
+console.log(person.name); // 输出: "John"
+
+// 设置 name 属性
+person.name = "Alice"; // 输出: 名字太短了,至少需要3个字符!
+person.name = "JohnDoe";
+console.log(person.name); // 输出: "JohnDoe"
+
+// 访问 age 属性
+console.log(person.age); // 输出: 30
+
+// 设置 age 属性
+person.age = -10; // 输出: 年龄不能为负数!
+person.age = 35;
+console.log(person.age); // 输出: 35
 ```
 

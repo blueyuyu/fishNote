@@ -2,7 +2,7 @@
  * @Author: blueyuyu ublueyuyuyu@gmail.com
  * @Date: 2024-09-19 11:17:39
  * @LastEditors: blueyuyu ublueyuyuyu@gmail.com
- * @LastEditTime: 2024-09-25 01:17:30
+ * @LastEditTime: 2024-09-25 20:55:07
  * @FilePath: \fishNote\docs\test\test.html
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -25,9 +25,36 @@
         //     { id: 4, pid: 2, name: '孙节点 1' },
         //     { id: 5, pid: 3, name: '孙节点 2' }
         // ];
+        // console.log('toTenFn(a)', toTenFn(a));
+
+        // var obj = {};
+        // obj.log = console.log;
+        // obj.log.call(console, this);
+
+        // console.log('null === null', null === undefined);
+        // console.log('null == undefined', null == undefined);
+
+        // var str = "Hellllo world";
+        // str = str.replace(/(l)\1/g, '$1');
+        // console.log('str', str);
+
+        // const a = [1, 4, 5, 2, 9];
+        // console.log('Math.max.apply(null, a)', Math.max.apply(null, a));
 
 
-        console.log('toTenFn(a)', toTenFn(a));
+        const m = new Map([[1, 'x'], [2, 'y'], [3, 'z']]);
+        const l = new Map([[2, 'x'], [3, 'y'], [3, 'z']]);
+
+        const a = new Set([1, 2, 3]);
+        const b = new Set([2, 3, 4])
+
+        const c = [1, 2, 3];
+        const d = [4, 5, 6];
+
+
+        console.log('a.intersection(b)', a.intersection(b));
+        console.log('m.intersection(l)', m.intersection(l));
+        console.log('c.intersection(d)', c.intersection(d));
 
     </script>
 </body>
