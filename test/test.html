@@ -2,7 +2,7 @@
  * @Author: blueyuyu ublueyuyuyu@gmail.com
  * @Date: 2024-09-19 11:17:39
  * @LastEditors: blueyuyu ublueyuyuyu@gmail.com
- * @LastEditTime: 2024-09-25 20:55:07
+ * @LastEditTime: 2024-09-25 23:25:56
  * @FilePath: \fishNote\docs\test\test.html
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -42,19 +42,40 @@
         // console.log('Math.max.apply(null, a)', Math.max.apply(null, a));
 
 
-        const m = new Map([[1, 'x'], [2, 'y'], [3, 'z']]);
-        const l = new Map([[2, 'x'], [3, 'y'], [3, 'z']]);
+        // const m = new Map([[1, 'x'], [2, 'y'], [3, 'z']]);
+        // const l = new Map([[2, 'x'], [3, 'y'], [3, 'z']]);
 
-        const a = new Set([1, 2, 3]);
+        // const a = new Set([1, 2, 3]);
         const b = new Set([2, 3, 4])
 
-        const c = [1, 2, 3];
-        const d = [4, 5, 6];
+        // const c = [1, 2, 3];
+        // const d = [4, 5, 6];
 
 
-        console.log('a.intersection(b)', a.intersection(b));
-        console.log('m.intersection(l)', m.intersection(l));
-        console.log('c.intersection(d)', c.intersection(d));
+        // console.log('a.intersection(b)', a.intersection(b));
+        // console.log('m.intersection(l)', m.intersection(l));
+        // console.log('c.intersection(d)', c.intersection(d));
+
+
+        const s1 = new Set([1, 2, 3]);
+
+        let obj1 = [2, 34, 4];
+        let obj = {
+            data: [3, 4, 5],
+            get size() {
+                return this.data.length
+            },
+            // keys() {
+            //     return Object.keys(this.data);
+            // },
+            // has(v) {
+            //     return this.data.includes(v);
+            // }
+        }
+
+        // console.log('s1.intersection(obj)', s1.intersection(obj));
+
+        console.log('typeof null', typeof undefined);
 
     </script>
 </body>
