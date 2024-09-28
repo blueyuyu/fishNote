@@ -132,6 +132,53 @@ import { onLoad } from '@dcloudio/uni-app';
 
 
 
+## 🌴 uni-app rpx到px的转化
+
+推荐链接：<https://juejin.cn/post/7083295652318281736>
+
+在uni-app中，涉及到多机型的样式适配问题，一般获取机型的宽高，进行一些处理，
+
+最后，关于样式的单位转化为rpx 最佳！！！
+
+```
+// rpx转px
+rpxToPx(rpx) {
+  const screenWidth = uni.getSystemInfoSync().screenWidth
+  return (screenWidth * Number.parseInt(rpx)) / 750
+}
+
+// px转rpx
+pxToRpx(px) {
+  const screenWidth = uni.getSystemInfoSync().screenWidth
+  return (750 * Number.parseInt(px)) / screenWidth
+}
+```
+
+页面使用写成行内样式，再引入计算变量。
+
+```
+// template
+<view
+        class="desc-btn"
+        style="position: fixed; width: 90%; left: 0rpx; margin-left: 30rpx"
+        :style="{
+          top: getFixedHeight + 'rpx'
+        }"
+      >
+     </view>
+
+// js
+const getFixedHeight = computed(() => {
+  let fixedTop = -40;
+  uni.getSystemInfo({
+    success: (res) => {
+      fixedTop += res.windowHeight; // 可用窗口高度
+    }
+  });
+  return pxToRpx(fixedTop);
+});
+```
+
 
 
 #  ❔ 等待研究

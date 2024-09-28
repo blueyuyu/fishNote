@@ -15,11 +15,27 @@
 
 参考链接： https://getcssscan.com/css-box-shadow-examples
 
-
 ### 关于如何丝滑滚动
 
 
+
 ### 使用fixed时，设置值的研究
+
+贴底边就用 bottom ,  贴顶边就用 top 。 元素尽量往边上放。
+
+```
+    <view class="desc-btn" style="position: fixed; width: 90%; left: 0rpx; bottom: 20rpx; margin-left: 30rpx">
+    <uv-button
+    type="primary"
+    :disabled="!nextStepEnable"
+    text="下一步"
+    customStyle="margin-buttom: 20rpx"
+    @click="nextStepFn"
+    color="#00c8aa"
+    :custom-style="{ borderRadius: '80rpx', height: '80rpx' }"
+    ></uv-button>
+    </view>
+```
 
 
 
