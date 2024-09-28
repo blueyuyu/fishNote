@@ -7503,7 +7503,7 @@ function throttle(fn, delay) {
         timer = setTimeout(() => {
             fn.apply(this, arguments)
             timer = null
-        })
+        },delay)
     }
 }
 ```
