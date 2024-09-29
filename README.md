@@ -1,3 +1,11 @@
+<!--
+ * @Author: blueyuyu ublueyuyuyu@gmail.com
+ * @Date: 2024-08-22 22:58:19
+ * @LastEditors: blueyuyu ublueyuyuyu@gmail.com
+ * @LastEditTime: 2024-09-29 10:59:08
+ * @FilePath: \fishNote\docs\README.md
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 # 鱼鱼鱼的笔记
 
 
@@ -44,7 +52,7 @@
 
 ------
 
-[2024年前端面试题（不完整版）](/InterviewQuestions/2024前端面试题(整理版).md)
+[2024年前端面试题（不完整版）](/InterviewQuestions/Front-end-interview.md)
 
 [线下面试复盘版](/InterviewQuestions/On-siteInterview.md)
 

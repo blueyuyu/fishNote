@@ -181,6 +181,16 @@ const getFixedHeight = computed(() => {
 
 
 
+## 🌴 uni-app 上传一定要上传uni_modules
+
+不然结局会有一点小惨！！！
+
+因为uni_modules是uni自引入的，我暂时还不知道咋快速下载，等我之后研究一下吧！
+
+
+
+
+
 #  ❔ 等待研究
 
 ## uv-ui 是怎么实现的？ 他是封装uni-app的原生来实现的吗？
