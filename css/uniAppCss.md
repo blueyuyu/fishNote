@@ -189,6 +189,37 @@ const getFixedHeight = computed(() => {
 
 
 
+## 🌴 uni-app H5端跨域引起的连带问题，及解决
+
+参考：https://blog.csdn.net/m0_53536475/article/details/130144830
+
+今天有遇到因为h5跨域导致我引入的uv-ui外部组件资源加载被阻断(虽然这个资源，已经被我放入了uni_modules  包内)，但还是提示uv-images组件是否是内部组件，类似于vue内部找不到之类的提示。
+
+解决跨域问题之后好像没有了，之后可以去详细了解一下跨域究竟是跨的哪一方面。
+
+使用 hbuilder 创建的vue3项目解决h5跨域问题：
+
+```
+import { defineConfig } from 'vite';
+import uni from '@dcloudio/vite-plugin-uni';
+
+export default defineConfig({
+  plugins: [uni()],
+  server: {
+    port: 3000,
+    proxy: {
+      '/api': {
+        target: 'https://consult-api.itheima.net/', // 目标服务
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      }
+    }
+  }
+});
+```
+
+
+
 
 
 #  ❔ 等待研究
