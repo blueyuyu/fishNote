@@ -222,10 +222,21 @@ export default defineConfig({
 
 因为我是用的hbuildx自带的功能新建的项目，不知道是否是这一原因：我配置完之后，所有带有请求的页面都加载，删除完代理配置之后，又可以加载了，页面的H5跨域问题又消失了（推测为hbuilder内部的一些处理导致的，具体原因不明）
 
-推荐： 下次再有这种跨域问题：用插件外部插件解决
+推荐： 下次再有这种跨域问题：用插件外部插件解决。
 
 
 
+## 🌴 uni-app 的云函数
+使用uni-app第一步，所有报错，
+遇事不决，反复重启！！！！
+
+
+
+## 🌴 uni-app 的cover-view
+
+用于覆盖map、video、textarea、canvas之类的；
+
+部分组件如map、video、textarea、canvas通过原生控件实现，原生组件层级高于前端组件（类似flash层级高于div）。为了能正常覆盖原生组件，设计了cover-view。
 
 
 
