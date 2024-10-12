@@ -56,6 +56,7 @@
 
 [线下面试复盘版](/InterviewQuestions/On-siteInterview.md)
 
+[js原理](/js/JSprinciple.md)
 
 
 ##   💛  开发小Tip总结
@@ -65,6 +66,7 @@
 
 [uni-app开发速查](/css/uniAppCss.md)
 
+[ts学习](/tsLearning/example.md)
 
 ##  💚  软件工程与实际开发的结合（优先级靠后）
 
