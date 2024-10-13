@@ -36,8 +36,6 @@
 
 `alt`属性用于为图像提供替代文本，即使图像无法加载，也可以描述图像内容，提高网页的可访问性和可用性。`title`属性则提供有关图像的额外信息，可以通过鼠标悬停或使用辅助技术来查看。它通常用于提供更多的上下文或补充描述，但并不是必需的。
 
-
-
 ###  简述一下src与href的区别
 
 在 HTML 中，`src` 属性是用来指定外部资源的 URL，如图像、脚本或嵌入式对象的位置。例如，`<img>` 标签中的 `src` 属性指定图像的 URL。
@@ -3042,9 +3040,11 @@ HTTP中的GET、POST、PUT、DELETE是四种常见的HTTP方法（也称为“�
 
 ### 选择大文件切片上传的理由
 
-项目中有用到可能会上传图片的功能，分辨率比较高，为减轻服务器资源压力
+项目中有用到可能会上传图片的功能，分辨率比较高，为减轻服务器资源压力。
 
 ### 大文件上传实现
+
+[推荐](https://blog.csdn.net/cpc980209/article/details/140093954)
 
 ```
 1. 将需要上传的文件按照一定的分割规则，分割成相同大小的数据块；
@@ -3206,6 +3206,11 @@ axiosInstance.interceptors.response.use(
 
 ## 用户权限设置（难点）
 
+1.  routes里面设置 props: {} 特殊标识；
+2. 后台页面再去筛选，显示侧边栏信息。
+3.  router.beforeEach() 判断跳转过去的路由是否有权限，有就放行，没有就不通过。
+4.  刷新失效问题。
+
 https://github.com/pekonchan/Blog/issues/20
 
 我觉得最好的方案：https://blog.csdn.net/lzc13902932164/article/details/131913215
@@ -3366,33 +3371,86 @@ router.beforeEach((to, from, next) => {
 
 ## Socket.io 通讯与WebSocket的理解
 
+项目中：使用 Socket.io 提供的 API 来监听来自服务器的任务更新事件，根据任务的状态变化，更新用户界面上的任务。
+
+**需要使用的原因**：后台端，任务列表接收全平台用户的任务执行数据，对任务更新的实时性有较高的要求。
+
+列表或其他相关的任务展示信息，使用户可以实时地看到任务的最新状态。
+
+浏览器里面用： ws 看请求。
+
 webSocket协议：是在网络中实现双向通信的协议。它允许客户端和服务器之间建立**持久的连接**，并通过该连接进行**实时**数据传输。
 
 应用场景： 弹幕聊天，协同
 
 ```
-import { io } from "socket.io-client";
+import { io } from 'socket.io-client';
+import { baseURL } from '@/utils/http.js';
+import { useUserStore } from '@/stores/index.js';
+import { onMounted, ref } from 'vue';
 
-export default {
-    data() {
-        return {
-            taskList: []
-        };
-    },
-    mounted() {
-        const socket = io("http://your-socket-server-url");
-        socket.on("taskListUpdate", (updatedTaskList) => {
-            this.taskList = updatedTaskList;
-        });
-    }
+// 引入消息组件
+
+const userStore = useUserStore();
+const { token, userInfo } = userStore;
+
+const props = defineProps({
+  orderId: String
+});
+
+// 消息列表
+const messageList = ref([]);
+// 文字信息
+const textMessage = ref('');
+// 问诊订单详情
+const orderDetail = ref({});
+
+const onInputConfirm = () => {
+  console.log('[ textMessage.value ] => ', textMessage.value);
 };
+
+const getOrderDetail = () => {
+  console.log('[ 222 ] => ', 222);
+};
+
+onMounted(() => {
+  const socket = io(baseURL, {
+    reconnectionDelayMax: 10000,
+    auth: {
+      token: 'Bearer ' + token
+    },
+    query: {
+      orderId: props.orderId // 房间号
+    },
+    transports: ['websocket', 'polling']
+  });
+
+  // 获取历史消息;
+  socket.on('chatMsgList', ({ code, data }) => {
+    console.log('[ data ] => ', data);
+    // 没有返回数据
+    if (code !== 10000) return;
+    // 提取列表数据
+    data.forEach(({ items }) => {
+      // 追加到消息列表中
+      messageList.value.push(...items);
+    });
+    // console.log('[ messageList ] => ', messageList.value);
+  });
+
+  // 如何发送消息
+  socket.on('statusChange', getOrderDetail);
+
+  // 清空表单
+  textMessage.value = '';
+});
 ```
-
-
 
 ## xlsx设置表格样式
 
-普通导出
+普通导出。
+
+请求数据： blob 数据流， JSON，formData,
 
 ```
 export const exportUserExcel = () => {
@@ -3422,7 +3480,7 @@ export const exportUserExcel = () => {
 
 前端实现导入导出：
 
-exceljs用于Excel数据处理，file-sever用于保存到本地文件。
+**exceljs** 用于Excel数据处理，file-sever用于保存到本地文件。
 
 合并单元格，配置样式，条件验证
 
