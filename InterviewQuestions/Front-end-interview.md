@@ -1415,13 +1415,7 @@ Function.prototype = {
 
 > 总结来说：`[[Prototype]]` 是对象内维护其对应原型对象的属性，但它不可直接被外界访问和修改；`__proto__` 是浏览器厂商实现的访问和修改对象内部属性 `[[Prototype]]` 的访问器属性(getter/setter)，不规范，现多用ECMAScript 定义的 `Object.getPrototypeOf` 和 `Object.setPrototypeOf` 代替；而 `prototype` 则是原型对象真正创建和存储的地方，在这里可以定义一些公用的属性和方法。
 
-
-
 ### 常用的数组处理方法
-
-
-
-
 
 ## TypeScript
 
@@ -1436,6 +1430,12 @@ Function.prototype = {
 
 
 ### type和interface的区别？
+
+interface只在编译阶段存在，编译后生成的代码不包含接口的定义，他不会影响运行时的性能与行为。
+
+type也是编译阶段处理的，但是其定义在某些情况下会影响类型的推导和检查。
+
+
 
 type支持联合、元组、映射类型，
 

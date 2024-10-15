@@ -145,9 +145,7 @@ console.log(params.toString())
 2. 如何改变`this`指向
 3. 手写`call`，`apply`，`bind`
 
-
-
-### 如何确认this指向：
+### 如何确认this指向
 
 在绝大多数情况下，函数的调用方式决定了 `this` 的值（运行时绑定）
 
