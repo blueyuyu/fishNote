@@ -423,3 +423,116 @@ console.log(nonNullableValue.length); // 这是安全的，因为我们知道 no
 type NonNullable<T> = T & {}; // 源码的这一句写的很有意思，泛型参数T和{}的交集就默认排除了`null` 和 `undefined`
 ```
 
+
+
+
+
+
+
+
+
+
+
+## vue项目中的ts
+
+### ui组件类型1
+
+```
+import type { VNode } from "vue";
+import type { TableColumnCtx } from "element-plus";
+
+type RH = {
+    column: TableColumnCtx<any>;
+    $index: number;
+};
+
+export type TableColumn = {
+index?: number | ((index: number) => number);
+renderHeader?: (data: RH) => VNode | string;
+filters?: Array<{
+    text: string;
+    value: string;
+}>;
+}
+```
+
+
+
+- **Array<{ text: string; value: string; }>**:
+  - `filters` 是一个数组，数组中的每个元素都是一个对象。
+  - 每个对象有两个属性：
+    - `text`：过滤项的显示文本，即用户在界面上看到的选项文本。
+    - `value`：过滤项的值，这是实际传递给过滤方法的值。
+
+
+
+### interface extends
+
+```
+export interface TableColumns extends TableColumn {
+    /** 是否隐藏 */
+    hide?: boolean | CallableFunction;
+    /** 自定义列的内容插槽 */
+    slot?: string;
+    /** 自定义表头的内容插槽 */
+    headerSlot?: string;
+    /** 多级表头，内部实现原理：嵌套 `el-table-column` */
+    children?: Array<TableColumns>;
+    /** 自定义单元格渲染器（`jsx`语法） */
+    cellRenderer?: (data: TableColumnRenderer) => VNode | string;
+    /** 自定义头部渲染器（`jsx`语法） */
+    headerRenderer?: (data: TableColumnRenderer) => VNode | string;
+}
+
+
+interface TableColumnList extends Array<TableColumns> {}
+```
+
+`type` 来定义类型别名，而用 `interface` 来定义对象结构。
+
+合并能力：
+interface 支持声明合并（Declaration Merging）。这意味着如果你有多个同名的接口，TypeScript 会将它们合并成一个接口。
+type 则不支持声明合并。每个 type 定义都是独立的，如果尝试重新定义同一个 type，会导致编译错误。
+
+**如果你需要在不同的地方逐步构建一个复杂的类型，并且希望这些部分能够自动合并，那么 interface 是更好的选择。**
+**例如，在大型项目中，不同模块可能需要扩展同一个接口，使用 interface 可以方便地实现这一点。**
+
+```
+// 第一个文件或模块中
+type User = {
+  name: string;
+};
+
+// 另一个文件或模块中
+type User = {
+  age: number;
+};
+
+// 这会导致编译错误
+// Duplicate identifier 'User'.
+```
+
+
+
+```
+// 第一个文件或模块中
+interface User {
+  name: string;
+}
+
+// 另一个文件或模块中
+interface User {
+  age: number;
+}
+
+// 合并后的 User 接口
+const user: User = {
+  name: 'Alice',
+  age: 30
+};
+```
+
+
+
+### Declaration File
+
