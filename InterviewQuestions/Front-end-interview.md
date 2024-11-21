@@ -182,8 +182,53 @@ defer 和 async 都是用于脚本加载和执行的关键字，两者的主要�
 - `preload`属性则告诉浏览器这个CSS资源在当前页面中必须被使用，因此应该立即加载和执行。浏览器会在主HTML文档下载和解析完成之前加载这个资源。`preload`适用于那些当前需要使用的资源。
 
 
-
 <hr />
+
+
+
+### 盒模型*
+
+- 组成: 内容(content),内边距(padding),边框(border),外边框(margin)
+- w3c官方盒子(标准盒子)
+  - \- 实际宽度=外边距+边框+内边距+内容
+- 怪异盒子
+  - \- 实际宽度=内部(内容+内边距+边框)+外边距
+
+box-sizing： content-box;    
+
+- `width` = 内容的宽度
+- `height` = 内容的高度
+
+box-sizing： border-box;    一般使用border-box更加方便计算
+
+- `width` = border + padding + 内容的宽度
+- `height` = border + padding + 内容的高度
+
+
+
+### vue使用rem适配*
+
+使用 postcss-pxtorem插件，并写js文件配置
+
+```
+//基准大小
+const baseSize = 37.5
+// 设置 rem 函数
+function setRem() {
+ const salepro = document.documentElement.clientWidth / 750
+ // 当前页面宽度相对于 750 宽的缩放比例，可根据自己需要修改.
+ // 设置页面根节点字体大小
+ document.documentElement.style.fontSize = (baseSize * Math.min(salepro, 2)) + 'px'
+}
+// 初始化
+setRem()
+// 改变窗口大小时重新设置 rem
+window.onresize = function () {
+ setRem()
+}
+```
+
+
 
 ## CSS
 
@@ -345,7 +390,7 @@ BFC的工作原理：
 
 
 
-### 有哪些清除浮动的技术，都适用哪些情况？
+### 有哪些清除浮动的技术，都适用哪些情况？*
 
 1. 使用`clear`属性： 在浮动元素后添加一个空元素，然后使用CSS的`clear`属性来清除浮动。适用于简单布局和较早的浏览器版本。
 
@@ -512,7 +557,7 @@ less：只有变量、嵌套、运算
 
 
 
-### 如何实现一个三角形？
+### 如何实现一个三角形*？
 
 使用 CSS 创建一个三角形的常见方法是利用边框（border）属性。具体操作如下：
 
@@ -672,11 +717,11 @@ background-size:
 
 ## JavaScript
 
-### js的七种基本数据类型（+1）
+### js的七种基本数据类型*
 
 Boolean ; null ; undefined ;Number ;string ;bigint ; Symbol;
 
-### js有哪些内置对象？（+1）
+### js有哪些内置对象？*
 
 JavaScript有许多内置对象，包括但不限于：
 
@@ -690,12 +735,76 @@ JavaScript有许多内置对象，包括但不限于：
 - 其他对象：Global、JSON等
 
 
+### typeof 与instanceof ？*
 
-### 什么是闭包？（+1）
+typeof 能识别所有的值类型，识别函数，能区分是否是引用类型。(但是不判断 Array、object)
+
+instanceof 用于检测构造函数的 **prototype** 属性是否出现在某个实例对象的原型链上。
+
+```
+typeof 0 // "number"
+
+typeof 10n // "bigint"
+
+typeof true // "boolean"
+```
+
+****
+
+
+
+### 哪些常用的数组处理方法？*
+
+**改变数组的**： push、pop、shift、unshift、splice （可添加或者删除）
+
+**es6的数组处理方法**：forEach、map、any、every、filter、reduce、find( 有return值、无undefine )、findIndex(有索引、无返回-1)、includes(return boolean)、indexOf（有索引、无 -1）
+
+**普通的数组处理**：concat、join、sort(升序)、reverse（反转）、flat()
+
+
+
+### 哪些常用的字符串处理方法？*
+
+concat、includes、indexof、slice、split、toUpperCase()、`toLowerCase()`、`startsWith(searchValue, position)`  、endsWith(searchValue, length) 、`repeat(count)`
+
+正则：match、replace、
+
+### 深拷贝和浅拷贝*
+
+深拷贝拷贝所有值，与原数据完全独立，浅拷贝只拷贝第一层。
+
+深拷贝：
+
+1. for循环递归
+2. JSON.parse(JSON.stringif(obj))
+3. lodash中的 Clonedeep()
+
+浅拷贝:
+
+```
+Object.assign({}, original)
+```
+
+[...] 扩展运算符
+
+### 什么是闭包？*
+
+#### 什么是js的闭包，概念？闭包的意义？
+
+（**变量保护**）意义！！（从架构的角度）（面试官解释了写插件的时候、不希望别人修改你的变量，不希望别人修改你的插件，闭包可以对变量进行保护，自我防护的机制，别人改不了，你自己也不会污染其他人的代码）
+
+```
+1.重用变量又不能造成全局污染
+2.内层函数访问外层变量
+```
+
+
+
+#### 理解概念
 
 闭包是指一个函数可以访问另一个函数作用域内的变量。当一个函数嵌套在另一个函数中时，内部函数可以访问外部函数的变量，即使外部函数已经返回了。这种情况下，内部函数形成了一个闭包，它保留了外部函数的作用域链并可以继续访问这些变量。
 
-**闭包**：现象：闭包就是内层函数访问外层变量。
+**闭包**：**现象：闭包就是内层函数访问外层变量。**
 
 原理：*闭包*是由函数以及声明该函数的词法环境组合而成的。该环境包含了这个闭包创建时作用域内的任何局部变量。
 
@@ -924,7 +1033,7 @@ for (let prop in obj) {
 
 for of 遍历要更加干净一些。
 
-### new操作符都做了什么（下回）
+### new操作符都做了什么? *
 
 1. 创建一个新对象
 2. 对象的`__proto__`指向构造函数的`prototype`。
@@ -1018,7 +1127,7 @@ event.stopPropagation()可以**阻止事件冒泡到父元素**，但不阻止�
 
 
 
-### 说一下事件循环机制Event Loop(重点)
+### 说一下事件循环机制Event Loop*
 
 参考链接：https://www.ruanyifeng.com/blog/2014/10/event-loop.html
 参考链接：https://github.com/jtwang7/JavaScript-Note/issues/49
@@ -1415,7 +1524,7 @@ Function.prototype = {
 
 > 总结来说：`[[Prototype]]` 是对象内维护其对应原型对象的属性，但它不可直接被外界访问和修改；`__proto__` 是浏览器厂商实现的访问和修改对象内部属性 `[[Prototype]]` 的访问器属性(getter/setter)，不规范，现多用ECMAScript 定义的 `Object.getPrototypeOf` 和 `Object.setPrototypeOf` 代替；而 `prototype` 则是原型对象真正创建和存储的地方，在这里可以定义一些公用的属性和方法。
 
-### 常用的数组处理方法
+### 
 
 ## TypeScript
 
@@ -2198,20 +2307,76 @@ Cookie、localStorage 和 sessionStorage 都是在客户端存储数据的技术
 
 
 
-### 路由history和hash的区别？
+### 路由history和hash的区别？*
 
 路由 history 和 hash 是前端路由（Single Page Application, SPA）中常用的两种模式。它们的主要区别在于实现方式和 URL 的展示形式。
 
 1. **Hash 模式**：
    - Hash 模式基于浏览器 URL 中的哈希（`#`）部分进行路由切换。当哈希值改变时，浏览器不会向服务器发送请求，而是触发 `hashchange` 事件。前端路由库会监听这个事件，并根据哈希值变化来更新视图。
+
+     ```
+     //设置 url 的 hash，会在当前url后加上'#abc'
+     window.location.hash='abc';
+     let hash = window.location.hash //'#abc'
+     // 监听 hashchange 事件
+     window.addEventListener('hashchange', function() {
+       var currentHash = window.location.hash;
+     });
+     ```
+
    - URL 示例：`https://example.com/#/page1`
+
    - Hash 模式兼容性较好，适用于旧版本浏览器。
+
+   - SEO 友好性：由于 # 后面的内容不会被搜索引擎索引，因此对 SEO 不友好。
+
 2. **History 模式**：
    - History 模式基于 HTML5 的 History API（如 `pushState`、`replaceState` 和 `popstate` 事件）实现。这些 API 允许在不重新加载页面的情况下，直接操作浏览器的历史记录和 URL。
-   - URL 示例：`https://example.com/page1`
+
+   - ```
+     // 添加新的历史记录
+     history.pushState({ page: "page2" }, "Page 2", "page2.html");
+     // 监听 popstate 事件
+     window.addEventListener('popstate', function(event) {
+       var state = event.state;
+       console.log(state)
+     });
+     // 其他方法
+     history.back();
+     history.forward();
+     history.go(1);//相当于history.forward()
+     history.go(-1);//相当于history.back()
+     history.go(0); // 刷新当前页面
+     ```
+
+     URL 示例：`https://example.com/page1`
+
    - History 模式需要服务器的配合，因为在用户直接访问某个路由（如 `https://example.com/page1`）时，如果服务器没有对应的配置，可能会返回 404 错误。为了解决这个问题，服务器需要设置一个通配符路由，将所有未匹配到的路由都重定向到单页应用的入口 HTML 文件。
 
-总之，Hash 模式和 History 模式是前端路由中的两种实现方式，具有不同的 URL 展示形式和浏览器兼容性。在选择路由模式时，需要根据项目需求、用户体验和服务器配置等因素进行权衡。
+   需要后端那边进行一个页面的重定向操作。
+
+   用nginx
+
+   ```
+   server {
+       listen 80;
+       server_name yourdomain.com;
+
+       root /path/to/your/dist; # 替换为你的项目构建输出目录
+
+       location / {
+           try_files $uri $uri/ /index.html;
+       }
+
+       # 可选：配置静态资源缓存
+       location ~* \.(?:ico|css|js|gif|jpe?g|png)$ {
+           expires max;
+           add_header Cache-Control "public";
+       }
+   }
+   ```
+
+   总之，Hash 模式和 History 模式是前端路由中的两种实现方式，具有不同的 URL 展示形式和浏览器兼容性。在选择路由模式时，需要根据项目需求、用户体验和服务器配置等因素进行权衡。
 
 
 
@@ -2526,7 +2691,7 @@ HTML（超文本标记语言）是用于构建和呈现网页内容的标准标�
 
 
 
-### 说一说从输入URL到页面呈现发生了什么
+### 说一说从输入URL到页面呈现发生了什么？*
 
 从输入 URL 到页面呈现，经历了以下几个主要步骤：
 
@@ -2658,17 +2823,18 @@ Web Workers 在浏览器中提供了一个单独的、并行的执行环境，�
 
 ## 计算机网络
 
-常见的状态码：
+### 常见的状态码？*
 
 1. **200 OK**：表示请求成功，服务器已成功处理请求。
-2. **201 Created**：表示请求成功，并且服务器已创建新的资源。
-3. **204 No Content**：表示请求成功，但服务器未返回任何内容。
+2. **204 No Content**：表示请求成功，但服务器未返回任何内容。
+3. 3开头是重定向
 4. **400 Bad Request**：表示客户端发送的请求存在语法错误或无法被服务器理解。
 5. **401 Unauthorized**：表示请求需要用户认证或权限验证，客户端需要提供有效的凭据。
-6. **403 Forbidden**：表示服务器理解请求，但拒绝执行请求。通常是因为权限不足。
+6. **403 Forbidden**：表示服务器理解请求，但**拒绝执行请求**。通常是因为权限不足。
 7. **404 Not Found**：表示请求的资源未找到。
 8. **405 Method Not Allowed**：表示请求中使用的 HTTP 方法不被允许。
 9. **408 Request Timeout**：表示服务器在等待请求时发生超时。
+10. **422 Unprocessable Entity** 请求的实体数据存在问题，例如数据的格式不正确或缺少必要的字段
 10. **429 Too Many Requests**：表示客户端发送的请求过多，服务器拒绝处理请求。
 11. **500 Internal Server Error**：表示服务器内部错误，无法完成请求。
 12. **503 Service Unavailable**：表示服务器暂时无法处理请求，通常是因为服务器过载或维护。
@@ -3036,7 +3202,9 @@ HTTP中的GET、POST、PUT、DELETE是四种常见的HTTP方法（也称为“�
 
 
 
-## 大文件切片上传
+## 大文件切片上传！！！！
+
+https://juejin.cn/post/6986188684605259783#heading-15
 
 ### 选择大文件切片上传的理由
 
@@ -3118,9 +3286,27 @@ https://www.ruanyifeng.com/blog/2018/07/web-worker.html
 
 
 
+### 上传完成之后如何合并？
+
+在前端，我们通过计数器 `uploadedChunks` 来跟踪已经上传的切片数量。当 `uploadedChunks` 达到总切片数 `chunks` 时，表示所有切片都已上传完成，此时可以调用 `/merge` 端点来合并切片。
+
+```
+if (uploadedChunks === chunks) {
+    mergeChunks(file.name, chunks);
+}
+```
+
+
+
 ### 请求的数据格式
 
 FormDate; JSON; application/x-www-form-urlencoded；普通文本
+
+
+
+
+
+## axios的二次封装怎么封装的？
 
 
 
@@ -3206,10 +3392,10 @@ axiosInstance.interceptors.response.use(
 
 ## 用户权限设置（难点）
 
-1.  routes里面设置 props: {} 特殊标识；
-2. 后台页面再去筛选，显示侧边栏信息。
-3.  router.beforeEach() 判断跳转过去的路由是否有权限，有就放行，没有就不通过。
-4.  刷新失效问题。
+1.  **routes里面设置 props: {} 特殊标识；**
+2. **后台页面再去筛选，显示侧边栏信息。**
+3.  **router.beforeEach() 判断跳转过去的路由是否有权限，有就放行，没有就不通过。**
+4.  **刷新失效问题。**
 
 https://github.com/pekonchan/Blog/issues/20
 
@@ -3379,9 +3565,9 @@ router.beforeEach((to, from, next) => {
 
 浏览器里面用： ws 看请求。
 
-webSocket协议：是在网络中实现双向通信的协议。它允许客户端和服务器之间建立**持久的连接**，并通过该连接进行**实时**数据传输。
+webSocket协议：**是在网络中实现双向通信的协议**。它允许客户端和服务器之间建立**持久的连接**，并通过该连接进行**实时**数据传输。
 
-应用场景： 弹幕聊天，协同
+应用场景： 弹幕聊天，协同。
 
 ```
 import { io } from 'socket.io-client';
@@ -3450,7 +3636,7 @@ onMounted(() => {
 
 普通导出。
 
-请求数据： blob 数据流， JSON，formData,
+**请求数据： blob 数据流， JSON，formData,**
 
 ```
 export const exportUserExcel = () => {
@@ -3570,6 +3756,14 @@ export default i18n；
 ```
 
 编辑自己的语言包，在 main.js 中注册 i18n 实例，在模板中使用 $t 函数: {{ $t('message.hello') }}
+
+#### 配置i18,如何解决中英文切换后，字体长度不一致？
+
+
+
+#### 有没有遇到特别难的问题？
+
+
 
 ## 大屏可视化怎么做的，echarts图数据如何动态更新
 
@@ -5655,9 +5849,66 @@ Nginx 应用场景：
 
 总之，Nginx 的高性能、轻量级和稳定性使其在众多应用场景中得到广泛应用，特别是在处理静态文件、反向代理和负载均衡等方面表现出色。然而，对于动态语言支持和模块扩展方面，Nginx 仍然需要与其他应用服务器配合使用以获得更好的效果。
 
+### 跨域问题及解决方案*
 
+1. 浏览器处于安全考虑，默认添加了同源策略，同源策略：同协议，同域名，同端口。当使用xhr对象发起请求时，发起请求的源地址，和要请求的目标地址，不同源时，浏览器会默认阻止，认为这次请求跨域，阻止，报错
+
+2. 同源策略：
+
+   1. 协议：http 和 https
+   2. 域名：[www.baidu.com](http://www.baidu.com) 和 [www.qq.com](http://www.qq.com)
+      - [www.baidu.com](http://www.baidu.com)
+      - baike.baidu.com
+   3. 端口：3000 和 3001
+
+3. 跨域的解决方式
+
+   开发环境，配置：vue.config.js 配置proxy
+
+   ```
+   module.exports = {
+     devServer: {
+       proxy: {
+         '/api': {
+           target: 'http://your-backend-server.com', // 后端服务地址
+           changeOrigin: true,
+           pathRewrite: { '^/api': '' }, // 路径重写规则
+         },
+       },
+     },
+   };
+   ```
+
+   生产环境：
+
+   1. CORS：后端服务器设置CORS,在请求的资源信息上设置：Access-Control-Allow-Origin.
+
+      ```
+      const express = require('express');
+      const app = express();
+
+      app.use((req, res, next) => {
+        res.header('Access-Control-Allow-Origin', '*'); // 允许所有来源，也可以指定具体的域名，例如 'http://example.com'
+        res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+        next();
+      });
+
+      app.get('/data', (req, res) => {
+        res.json({ message: 'This is data from the server!' });
+      });
+
+      app.listen(3000, () => {
+        console.log('Server is running on port 3000');
+      });
+      ```
+
+      ​
+
+   2. 服务器代理：不适用浏览器直接发起跨域请求，先搭建一个中间服务器，由自己搭建的服务器发起原本的跨域请求，拿到数据。再通过浏览器请求自己的服务器中跨域的数据。
 
 ### 如何用Nginx解决前端跨域问题？
+
+
 
 要使用 Nginx 解决前端跨域问题，您可以通过配置 Nginx 为您的 Web 服务添加 CORS（跨域资源共享）相关的响应头。以下是一个简单的示例，展示如何在 Nginx 配置文件中实现 CORS 配置：
 
@@ -7547,13 +7798,13 @@ type OmitThisParameter<T> = T extends (this: any, ...args: infer A) => infer R ?
 
 
 
-防抖函数
+### 防抖、节流debounce*
 
+就记**简化版**。
 
+防抖：一直触发就一直清空。
 
-
-
-### 防抖debounce
+节流：一段时间内只执行一次。
 
 ```
 function debounce(fn, delay = 500) {
@@ -7564,7 +7815,7 @@ function debounce(fn, delay = 500) {
             clearTimeout(timer)
         }
         timer = setTimeout(() => {
-            fn.apply(this, arguments)
+            fn.apply(this, arguments) // 这里捕获外层匿名函数
             timer = null
         }, delay)
     }
@@ -7582,45 +7833,6 @@ function throttle(fn, delay) {
         },delay)
     }
 }
-```
-
-
-
-```typescript
-function debounce(func: (...args: any[]) => void, wait: number): (...args: any[]) => void {
-    let timeout: ReturnType<typeof setTimeout> | null = null;
-
-    return (...args: any[]) => {
-        if (timeout) {
-            clearTimeout(timeout);
-        }
-
-        timeout = setTimeout(() => {
-            func.apply(null, args);
-        }, wait);
-    };
-}
-```
-
-
-
-### 节流throttle
-
-```typescript
-function throttle(func: (...args: any[]) => void, limit: number): (...args: any[]) => void {
-    let lastCall = 0; // 记录上次调用的时间戳
-
-    return (...args: any[]) => {
-        const now = Date.now(); // 获取当前时间戳
-
-        // 如果当前时间与上次调用的时间差大于等于设定的限制时间，执行函数并更新上次调用时间
-        if (now - lastCall >= limit) {
-            func.apply(null, args);
-            lastCall = now;
-        }
-    };
-}
-
 ```
 
 
@@ -8179,7 +8391,7 @@ myAsyncFunction().then(result => console.log(result)); // 依次输出 "First re
 
 
 
-### 正则获取url params
+### 正则获取url params*
 
 ```typescript
 // 自定义实现获取 URL 参数

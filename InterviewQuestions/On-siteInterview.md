@@ -1412,5 +1412,95 @@ console.log(person.age); // 输出: 30
 person.age = -10; // 输出: 年龄不能为负数!
 person.age = 35;
 console.log(person.age); // 输出: 35
+
+```
+
+
+
+### 长沙线上某个公司
+
+#### !!!对vite的理解？使用vite做过哪些优化操作？
+
+快速启动和热更新、按需加载、高效构建、对ts的支持很好。
+
+- **代码分割**: 手动指定模块打包到同一个 chunk 中。
+- **Gzip 压缩**: 减少文件大小。
+- **CSS 预处理器**: 方便使用 Sass、Less 等。
+- **懒加载路由**: 减少初始加载时间。
+- **图像优化**: 使用插件对图像进行优化。
+- **缓存控制**: 设置 HTTP 头控制静态资源缓存。
+- **PWA 支持**: 支持 Progressive Web App 功能。
+
+css预处理、文件压缩、图像压缩、
+
+#### !!! webpack哪些打包优化操作？
+
+- JS代码压缩
+- CSS代码压缩
+- Html文件代码压缩
+- 文件大小压缩
+- 图片压缩
+- Tree Shaking
+- 代码分离
+- 内联 chunk
+
+### 如何提高webpack构建速度？
+
+- 优化 loader 配置
+- 合理使用 resolve.extensions
+- 优化 resolve.modules
+- 优化 resolve.alias
+- 使用 DLLPlugin 插件
+- 使用 cache-loader
+- terser 启动多线程
+- 合理使用 sourceMap
+
+#### 首屏做过哪些优化？
+
+代码拆分、Tree Shaking、图片优化、使用 CDN、使用骨架屏、预加载关键资源、懒加载、减少重绘和回流、使用 CSS-in-JS 或内联样式、字体优化、Critical CSS、减少第三方脚本、压缩和最小化资源、使用 HTTP 压缩、优化布局和渲染、减少重定向。
+
+#### vuex的常见属性和用法？
+
+- **State**: 存储应用的状态数据。
+
+- **Getters**: 从 `state` 中派生出一些状态，类似于计算属性。
+
+- **Mutations**: 修改 `state` 的唯一途径，必须是同步函数。
+
+- **Actions**: 处理异步操作，并提交 `mutations`。
+
+- **Modules**: 将 Store 分割成模块，便于管理和维护。
+
+  ```
+  // modules/user.js
+  const userModule = {
+    state: {
+      user: null,
+    },
+    mutations: {
+      setUser(state, user) {
+        state.user = user;
+      },
+    },
+    actions: {
+      login({ commit }, user) {
+        commit('setUser', user);
+      },
+    },
+    getters: {
+      isAuthenticated: state => !!state.user,
+    },
+  };
+
+  ```
+
+
+
+```
+
+this.$store.state.num
+this.$store.commit('addNum',1) //修改
+this.$store.dispatch('asyncAddNum')
+this.$store.getters.计算属性名
 ```
 
