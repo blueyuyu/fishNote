@@ -1,7 +1,6 @@
 ## 前端现场面试
 
-永远记住，不要打逆风局，不要打逆风局 ！！
-
+风浪越大鱼越贵。
 
 
 ### 🍋 柠檬云财税
@@ -11,7 +10,8 @@
 ```
 Flex-direction: row | row-reverse | column-reverse | column
 Flex-wrap:(适用于多行)： no-wrap | wrap | wrap-reverse
-Flex-flow: flex-direction flex-wrap
+Flex-flow: flex-direction flex-wrap；
+
 Justify-content: flex-start | flex-end | center | space-between | space-around
 
 Align-content: flex-start | flex-end | center | space-between | space-around | stretch; 
@@ -28,6 +28,19 @@ flex-shrink 定义了项目的缩小比例，默认为1(空间不足会压缩)�
 flex-basis 属性定义了在分配多余空间之前，项目占据的主轴空间（main size）
 ```
 
+content是设置间隔；items设置居中之类的
+
+多行排列
+
+```
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+}
+```
+
 
 
 #### 代码回退
@@ -38,11 +51,13 @@ Git reset | **Git revert**(推荐使用)
 
 #### linux 如何获取全部目录
 
+ls     查看目录；
+
+常见linux操作：
+
 mkdir   aaa      创建目录aaa；
 
 echo >index.js   创建一个名为 index.js 的空文件；
-
-ls     查看目录；
 
 cat  查看文件；
 
@@ -77,6 +92,10 @@ Split() 指定的分隔符将一个字符串分割成一个数组
 
 
 
+常用的数组方法，字符串处理方法？
+
+
+
 #### 数组去重的几种方法
 
 ```
@@ -99,25 +118,107 @@ console.log(uniqueArr); // 输出 [1, 2, 3, 4, 5]
 
 ```
 
-#### 对pinia的理解
+#### 对pinia的理解？
+
+pinia是一个状态管理库，和vuex类似，但是比vuex使用更方便，且其对ts的支持更好。
+
+```
+// stores/counter.js
+import { defineStore } from 'pinia';
+import { ref, computed, reactive } from 'vue';
+
+export const useUserStore = defineStore(
+  'user',
+  () => {
+    const userInfo = ref(null);
+    const token = ref(null);
+
+    // 设置用户
+    const setUser = (val) => {
+      userInfo.value = val;
+    };
+
+    // 删除用户
+    const delUser = () => {
+      userInfo.value = null;
+    };
+
+    // 设置token
+    const setToken = (val) => {
+      token.value = val;
+    };
+
+    // 删除用户
+    const delToken = () => {
+      token.value = null;
+    };
+
+    return { userInfo, setUser, delUser, token, setToken, delToken };
+  },
+  {
+    persist: true
+  }
+);
+```
+
+使用仓库
+
+```
+import { useUserStore } from '@/stores/index.js';
+const store = useUserStore();
+
+const logout = () => {
+  // 退出登录
+  // 清空用户pinia
+  store.delUser();
+  store.delToken();
+  // 退出到登录页，不可返回其他栈的
+  uni.reLaunch({
+    url: '/pages/login/login'
+  });
+};
+```
 
 
 
 #### Ts中type与interface的区别？
 
+`type` 和 `interface` 在 TypeScript 中都可以用于定义复杂类型，但它们在声明方式、扩展、合并声明和类型表示等方面有所不同。`type` 更灵活，支持更多类型表示，而 `interface` 更适用于描述对象结构，可以进行合并声明。
 
+- type:   定义之后会有类型的推导和检查。
 
 #### 对keep-alive 组件的一些理解？
 
- 它的功能是在多个组件间动态切换时缓存被移除的组件实例。
+keep-alive  :在组件切换时缓存组件实例。
+
+`include` 和 `exclude` 属性来控制哪些组件应该被缓存。
+
+max 属性用于限制可以缓存的最大组件实例数量。
+
+如果超过了这个个数的话，在下一个新实例创建之前，就会将以缓存组件中最久没有被访问到的实例销毁掉。
+
+##### 生命周期钩子
+
+- **activated**：当组件被激活（即从缓存中恢复）时调用。
+- **deactivated**：当组件被停用（即被缓存）时调用。
+
+使用时
+
+- 每个组件都有 `activated` 和 `deactivated` 钩子。
+- 在 `activated` 钩子中，组件会重新获取数据。
+- 在 `deactivated` 钩子中，可以进行清理操作，比如取消订阅或清除定时器。
+
+它的功能是在多个组件间动态切换时缓存被移除的组件实例。
 
 ```
 <KeepAlive include="a,b">
   <component :is="view" />
 </KeepAlive>
-
-
 ```
+
+##### 扩展：使用了LRU算法
+
+参考：https://blog.csdn.net/qq_43477721/article/details/120629036
 
 
 
@@ -143,53 +244,80 @@ console.log(uniqueArr); // 输出 [1, 2, 3, 4, 5]
 
 Vue2里的data()为啥是函数？
 
-为什么vue2在访问method的时候，可以直接 this.getMyMrthod()，而不是 this.methods.getMyMethod() ?
+为什么vue2在访问method的时候，可以直接 this.getMyMethod()，而不是 this.methods.getMyMethod() ?
 
-vue里有哪些内置组件？（回答keep-alive）
+#### vue里有哪些内置组件？
+
+（回答keep-alive）
 
 追问： keep-alive 的作用； keep-alive的三个属性？
 
 追问： keep-alive的max=10，当缓存页面超过10之后，会怎样？（面试官说有一个LRU算法）
 
-常用的vue指令？
+1. **<transition> 和 <transition-group>**:
 
-如何实现自己的自定义指令？有哪些钩子函数？钩子函数里有哪些参数？
+   - 用于给元素或组件的进入和离开添加过渡效果。
+   - `<transition>` 用于单个元素或组件的过渡。
+   - `<transition-group>` 用于列表中多个元素或组件的过渡，并且可以对列表中的元素进行排序、插入和删除。
 
-![img](http://www.kdocs.cn/api/v3/office/copy/c3A5MGNXQUN4UjE5UlllRmJ0a0VQK1RMSmNDNE9GcGNRNW1CNExuUjJBQ0xONEpTU3pwMlhQN2RpTm94RHU3SGFGT2N6bG4wakdpQnkzem8yU2M2QlRqVVhQM1dHTTQ4VURTL29kaVpjclBWejIyOUJtUTZGZVFobEJuRUNWVzM1c3E1bitVT0RRS2dxWjZ2a3ZQZ2xkU041QTY4eUYxQVpXRW1EUkhVeTRiYVJTQXVYNGNnU1hsTDBIMFc0Q3BlNFhBdmh4UXhjRmRPMEovcHZ4dyswYnlMZitUbUx5YTIxVmY0RktBRDRMa1kxUlQxMUlFdVEwalZUQlNkYUNMZFBPVC8wdlJDMGVrPQ==/attach/object/41b23e65f9a85389de97028e444ce4f230d37e76?) 
+2. **<teleport>** (Vue 3+):
+
+   - 用于将组件的内容渲染到 DOM 中的不同位置，而不是组件的当前位置。
+   - 适用于模态框、提示信息等需要脱离当前组件层级结构的场景。
+
+   ```
+   <teleport to="body">
+       <div v-if="visible" class="modal-overlay" @click="closeModal">
+         <div class="modal" @click.stop>
+           <h2>{{ title }}</h2>
+           <p>{{ message }}</p>
+           <button @click="closeModal">Close</button>
+         </div>
+       </div>
+     </teleport>
+   ```
+
+   ​
+
+#### 常用的vue指令？
+
+v-on (@)  v-bind (: 单向传输) v-model(双向数据绑定，v-model只能应用在表单类元素（如：input、select等）)
+
+v-show v-if v-text v-for v-once
+
+#### 如何实现自己的自定义指令？
+
+##### 有哪些钩子函数？
+
+##### 钩子函数里有哪些参数？
 
  
 
- 
-
-11. 让你实现一个dialog拖拽的自定义指令？该怎么实现？（给了些思路）
+让你实现一个dialog拖拽的自定义指令？该怎么实现？（给了些思路）
 
 
 
+路由有哪些守卫？组件内部的一些首位？
 
+Vuex action mutation? 为什么mutation是同步的？
 
-12. 路由有哪些守卫？组件内部的一些首位？
+Ts 中的泛型里理解？如何对泛型进行约束？
 
-13. Vuex action mutation? 为什么mutation是同步的？
+断言是怎么用的？
 
-14. Ts 中的泛型里理解？如何对泛型进行约束？
+Unknow与any的区别？
 
-15. 断言是怎么用的？
+Interface与type的区别？
 
-16. Unknow与any的区别？
+后台管理系统鉴权？
 
-17. Interface与type的区别？
-
-18. 后台管理系统鉴权？
-
-19. 如何针对不同角色看到的菜单不一样？路由权限
-
-20. 代码如何优化？打包做了什么优化？
+如何针对不同角色看到的菜单不一样？路由权限？
 
 
 
+#### 代码如何优化？打包做了什么优化？
 
-
-webpack 打包优化
+###### webpack 打包优化
 
 JS代码压缩（TerserPlugin）
 
@@ -213,7 +341,7 @@ Tree Shaking （消除死代码、    optimization:{
 
  
 
-vite打包优化
+###### vite打包优化
 
 推荐：
 
@@ -1504,3 +1632,7 @@ this.$store.dispatch('asyncAddNum')
 this.$store.getters.计算属性名
 ```
 
+封装的hooks;文件上传下载
+dva里怎么进行状态管理？具体操作？还有什么类似的react状态管理工具？
+websocket怎么用?和后端协商吗，后端有做了什么了解吗?
+虚拟滚动;react性能优化
