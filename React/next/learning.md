@@ -1,8 +1,14 @@
-## react
+## next注意事项
+
+学习的注意事项：
+
+能看英文版本就别看中文版本！！！！中文版本一般很老，很旧！！！
+
+[next学习教程](https://nextjs.org/learn/dashboard-app/adding-search-and-pagination)
 
 ### Button
 
-```
+```tsx
 <Button
   type="submit"
   className='w-full'
@@ -16,15 +22,7 @@
 
 这是一个条件表达式，它使用逻辑与运算符 && 来检查 isName, isEmail, 和 isPassword 是否都为 true。
 如果所有这些条件都为 true，则会生成一个包含 onClick 属性的对象 { onClick: () => onGenerate0TP(getValues('email'), getValues('password'), setCurrentStep) }。
-然后，这个对象会被展开（通过 ... 语法）并作为属性传递给 <Button> 组件。
-
-## next注意事项
-
-学习的注意事项：
-
-能看英文版本就别看中文版本！！！！中文版本一般很老，很旧！！！
-
-
+然后，这个对象会被展开（通过 ... 语法）并作为属性传递给button组件。
 
 ### 页面路由
 
@@ -35,8 +33,6 @@ export default function FirstPost() {
   return <h1>First Post</h1>
 }
 ```
-
-
 
 ### 页面之间的导航
 
