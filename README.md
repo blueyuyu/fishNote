@@ -68,6 +68,8 @@
 
 [ts学习](/tsLearning/example.md)
 
+[next学习](React/next/learning.md)
+
 ##  💚  软件工程与实际开发的结合（优先级靠后）
 
 ------
