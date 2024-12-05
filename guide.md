@@ -1,0 +1,1 @@
+https://pipebox.pro/note/#/
