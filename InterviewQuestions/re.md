@@ -5,6 +5,14 @@
 2.常见面试题速查：https://aa72fjtc5n.feishu.cn/docx/AP2PdIOcMoDH64xgN82c0AzpnVd
 
 
+市面上比较缺的类型：
+1. 需要有一些three.js 经验的管理平台；
+2. 人员系统、erp系统的构建人员；
+3. react native 开发 或者 react 开发；
+4. shopify独立站建站程序员；
+5. SEO优化人员；
+
+
 简历技巧
 1. 年龄要对上；
 2. webpack 打包，优化之后，时间减少多少，增加多少之类的。对各种场景兼容优化，（什么场景？支付场景，还是别的）
