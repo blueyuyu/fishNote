@@ -4,6 +4,7 @@
 
 2.常见面试题速查：https://aa72fjtc5n.feishu.cn/docx/AP2PdIOcMoDH64xgN82c0AzpnVd
 
+https://www.anyup.cn/site/zh/blog/
 
 市面上比较缺的类型：
 1. 需要有一些three.js 经验的管理平台；
