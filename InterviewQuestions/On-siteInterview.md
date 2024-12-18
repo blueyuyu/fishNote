@@ -1,3 +1,5 @@
+
+
 ## 前端现场面试
 
 风浪越大鱼越贵。
@@ -1674,7 +1676,7 @@ Echarts需要实时的更新数据,应该怎么做？（轮询）如果某次请
 
 
 
-### 广州 lespark线下面试题
+### 广州 lespark线下面试题(14k)
 
 nginx配置、webpack做过哪些优化、
 
@@ -1706,7 +1708,7 @@ cookie、localStorage、sessionStorage相关，主域名和子域名cookie能共
 
 
 
-### 老板面
+### 老板面/人事面
 
 
 
@@ -1769,7 +1771,7 @@ cookie、localStorage、sessionStorage相关，主域名和子域名cookie能共
 
 
 #### 
-### 长沙数字马力一面
+### 长沙数字马力一面(13k)
 
 1.讲讲个人情况？离职原因？为什么考虑长沙？
 2.讲讲项目最近做的一个项目？用什么做的响应式？你做过大屏，大屏是咋适配的？rem、em、vh...
@@ -1784,7 +1786,7 @@ cookie、localStorage、sessionStorage相关，主域名和子域名cookie能共
 11. 反问？技术展示react + ts
 
 
-### 长沙数字马力二面
+### 长沙数字马力二面(13k)
 
 1.自我介绍
 2.vuex状态管理使用场景，讲讲具体哪些功能用了这些？
@@ -1917,7 +1919,203 @@ CSS 兼容性
 
 
 
+### 长沙电商类、独立开发公司面试(10k)
 
+
+
+#### 搭一个公司官网
+
+（从技术选型角度考虑。自己搭建官网，技术选型，做官网要考虑到哪些问题？）
+
+基于SEO考虑，会采用 next（react） 或者nuxt（vue）来进行网站搭建，或者使用一些成熟的开源库，类似wordpress之类的，wordpress是基于PHP的，他对SEO的适配是很不错的。
+
+开发注意:  响应式设计，网站兼容性问题，网站响应速度，SEO优化，网站部分页面反扒，商城类要特别考虑安全性问题。
+
+
+
+响应式设计：确保网站能够在不同设备上（如台式机、平板、手机）正确显示和操作。
+浏览器兼容性：不同浏览器对HTML、CSS和JavaScript的支持可能存在差异，需要测试网站在主流浏览器（如Chrome、Firefox、Safari、Edge）中的表现。可以使用Polyfill和Transpiler等技术来解决兼容性问题1。
+性能优化：优化网站加载速度，减少资源请求，使用压缩和缓存技术，懒加载图片和资源，使用CDN加速资源加载等2。
+用户友好的界面：设计直观、易于导航和使用的界面，确保用户能够轻松找到所需信息并完成操作。
+安全性：保护用户数据，防止XSS（跨站脚本攻击）、CSRF（跨站请求伪造）等常见攻击。使用HTTPS协议来加密数据传输，对用户输入进行验证和过滤2。
+可维护性和可扩展性：代码应该易于维护和扩展，遵循模块化开发，使用清晰的代码结构和良好的注释。
+调试和错误处理：使用浏览器的开发者工具进行调试，设置适当的错误处理机制来捕获和处理异常1。
+跨域问题：处理跨域请求，使用JSONP、CORS或代理服务器等方式来实现跨域数据访问1。
+SEO（搜索引擎优化）：虽然前端开发人员不直接参与SEO，但了解基本的SEO原则（如使用语义化的HTML标签、优化页面标题和元描述等）仍然重要。
+
+
+
+#### 官网，商场，和后台区别？
+
+（从用户角度有什么相同之处，不同之处）
+
+官网和商城是 toC 项目，面向大众；用户体验会更好，隐私性、安全性都有保障。
+
+后台项目是toB 项目，面向企业用户；用户体验相对来说要差一点，一般功能性更强。
+
+
+
+商城，更侧重用户体验，功能也比较多，安全性问题；
+
+
+做电商类页面
+如果是是用vue的话，那可能必须要用到 next，服务端渲染，不然SEO不够友好。
+
+去github上找现成的商用平台。(找现成的商用平台，盈利后再自己做)
+wordpress+woocommerce，
+WordPress.org下载压缩包，服务器用PHP/MySQL，不是WordPress.com。
+
+ shopify 或者 woocommerce 好。
+
+#### 使用的vue 3点几的版本?
+
+现在公司的vue3 版本基本以 vue3.2 、vue3.3为主。
+
+2024.12.18
+
+( 这个问题很有意思，vue3的几个版本  )
+最近新出到了，vue3.5的版本，目前使用的3.4版本。
+
+平常用的就是3.2，3.3这样的。
+
+**3.4版本更新：**
+
+1、彻底重构 parser，加快一倍
+
+2、SFC 编译 source map 优化，提速可达 50%
+
+3、响应式系统重构，更精确的 computed 计算触发
+
+4、defineModel 成为稳定功能
+
+5、v-bind 语法糖
+
+**parser 重构、SFC 编译 source map 优化：** 这都是实打实地提升了编译速度啊！编译速度直接影响了开发体验
+
+**响应式系统重构：** 我还记得以前`watchEffect`这个 API 无论依赖改变前后相不相同，都会触发`watchEffect`回调重新执行（性能问题），而响应式系统重构是彻底解决了这个性能问题！
+
+**defineModel：** 以前封装组件时涉及到父子数据双向绑定时，都很麻烦，而有了`defineModel` 之后，瞬间简单
+
+https://cn.vuejs.org/api/sfc-script-setup.html#definemodel
+
+```
+// 子组件：
+const count = defineModel("count", { type: Number, default: 0 })
+function inc() {
+  // 在被修改时，触发 "update:count" 事件
+  count.value++
+}
+
+// 父组件
+<Child v-model:count="refcount"></Child>
+const refcount = ref()
+```
+
+```
+// 修饰符
+const [modelValue, modelModifiers] = defineModel({
+  // get() 省略了，因为这里不需要它
+  set(value) {
+    // 如果使用了 .trim 修饰符，则返回裁剪过后的值
+    if (modelModifiers.trim) {
+      return value.trim()
+    }
+    // 否则，原样返回
+    return value
+  }
+})
+```
+
+**3.5版本**
+
+  `**Vue3.5**` 支持 Props 响应式解构；https://blog.vuejs.org/posts/vue-3-5
+
+```
+import { watchEffect } from 'vue
+const { count } = defineProps(['count'])
+watchEffect(()=>{
+// 每当父组件中的 count 属性发生变化时，这里就会记录console.log(count)
+})
+```
+
+useTemplateRef 提供了一种新的方式来获取模板引用。
+
+userId 用于生成在服务端和客户端渲染间保持稳定的唯一 ID，适用于表单元素和可访问性属性。
+
+#### setup语法糖，父组件拿子组件里的属性和方法
+
+defineExpose()子组件内暴露，父组件ref获取
+
+
+
+#### 如何定义一个命令式的弹框？
+
+1. 创建弹窗组件，用transition做动画处理，transport传送到body，同时暴露两个方法，showModel() hideModel()
+2. 编写弹窗组件打开关闭逻辑；用createApp()的app.mount()与app.unmount() 实现组件的挂载与卸载；
+3. 把弹窗注册成全局插件，app.config.globalProperties.$showModal = showModal;
+4. 页面$()调用
+
+
+
+### 长沙pc
+
+vue2 与vue3 区别
+
+
+
+vue2原理
+
+
+
+
+
+双向绑定原理
+
+
+
+#### 数据可视化大屏，鼠标滚轮放大，缩小，页面如何适配?
+
+https://blog.csdn.net/Sophie_U/article/details/109582687
+
+normalize-wheel 与 resize-observer-polyfill 
+
+使用相对单位 +  媒体查询 + 为关键元素设置组大最小宽高 + 监听鼠标滚轮缩放大小，限制放大缩小
+
+太大太小不展示某些元素，或者展示一些提示页面。
+
+1. **使用相对单位**:
+   - 使用百分比 (`%`)、`em`、`rem` 等相对单位来定义宽度和字体大小，而不是固定的像素值 (`px`)。
+2. **媒体查询**:
+   - 使用媒体查询来处理不同屏幕尺寸和缩放级别的样式变化。
+   - 例如，可以在特定的缩放范围内应用不同的样式规则。
+3. **弹性布局**:
+   - 使用 Flexbox 和 Grid 布局来创建灵活且适应性强的布局。
+   - 确保内容能够根据视口大小自动调整。
+4. **最小和最大宽度/高度**:
+   - 为关键元素设置最小和最大宽度/高度，以防止过度缩放导致的内容混乱。
+5. **动态内容调整**:
+   - 在 JavaScript 中监听缩放事件，动态调整内容的位置和大小。
+   - 例如，在缩放到极小或极大时，隐藏不必要的元素或显示提示信息。
+
+ getBoundingClientRect() 元素的大小及其相对于[视口](https://developer.mozilla.org/zh-CN/docs/Glossary/Viewport)的位置。
+
+缩放逻辑:
+使用 CSS 的 transform 属性来实现缩放。
+监听鼠标滚轮事件来调整缩放级别。
+适配不同屏幕尺寸:
+使用 Flexbox 和 Grid 布局。
+使用媒体查询来适应不同的屏幕分辨率。
+确保内容在缩放时保持清晰和可读性。
+平滑过渡:
+使用 CSS 过渡来实现平滑的缩放效果。
+处理缩放中心点，确保用户滚动时不会感到突兀。
+边界条件:
+设置最小和最大缩放级别，防止过度缩放。
+确保内容不会超出视口范围。
+
+
+
+## 从头设计组件库怎么考虑？
 
 
 
@@ -1925,4 +2123,4 @@ CSS 兼容性
 ## 笔试摘要
 
 1. 手写简化promise
-2. ​
+2. 双向链表

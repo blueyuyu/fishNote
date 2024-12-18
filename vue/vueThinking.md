@@ -127,3 +127,51 @@ resume();
 
 
 watch 可以指定层级， deep:2 ,3
+
+
+
+### vue3多组件实例获取
+
+```
+<template>
+<!-- 渲染多个实例
+<div v-for="item in arr" :ref="addRefs" :key="item">哈哈</div></template>
+<script setup lang="ts">import {ref } from 'vue
+const arr =[1,2，3]
+//使用 Typescript 来区分const elRefset =ref<Set<HTMLDivElement>>(new set())// 收集多个 ref
+const addRefs=(instance:HTMLDivElement)=>{elRefset.value.add(instance)
+const count =ref(8)
+</script>
+```
+
+
+
+### 在组件内部生成唯一id
+
+3.5 写法
+
+用于为无障碍属性或表单元素生成每个应用内唯一的 ID。
+
+```
+<!-- Component.vue -->
+<template>
+<div :class="eleclass"><el-input /></div>
+</template>
+
+<script lang="ts" setup>
+import {useId,onMounted }from 'vue
+//生成唯一IDconst id = useId()
+const eleclass=div-class-${id}
+
+onMounted(()=>{//与组件其他组件逻辑隔绝开
+document.querySelectorA1l(.${eleclass}.el-input`)
+})</script>
+
+<!-- Page.vue -->
+<template>
+<!--这两个组件实例里逻辑不会互相影响
+<Component />
+<Component />
+</template>
+```
+
