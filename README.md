@@ -52,9 +52,9 @@
 
 ------
 
-[2024年前端面试题（不完整版）](/InterviewQuestions/Front-end-interview.md)
+[2024年收录前端面试题（不完整版）](/InterviewQuestions/Front-end-interview.md)
 
-[线下面试复盘版](/InterviewQuestions/On-siteInterview.md)
+[mians](/InterviewQuestions/On-siteInterview.md)
 
 [js原理](/js/JSprinciple.md)
 
@@ -89,4 +89,3 @@
 
 ------
 
-[碎碎念2024](/journal/blueMemory.md)
