@@ -2143,6 +2143,134 @@ normalize-wheel 与 resize-observer-polyfill
 
 
 
+
+
+### 腾讯前端面试（两年）：
+
+```
+const proxy = new Proxy({}, handler);
+
+proxy.a = 10;
+
+console.log(proxy.a); // 输出 10
+
+console.log(proxy.b); // 输出 'default'
+
+proxy.a = 'string';
+
+console.log(proxy.a); // 输出 10
+
+```
+
+柯里化、大数相加
+
+// 8. 简述在 esbuild/rollup/babel/webpack/vite 等打包工具中，以下代码，会产生怎样的 bundle
+
+```
+// index.ts
+export { foo } from './lib'
+
+// lib.ts
+export const foo = 1;
+export enum bar { a, b };
+​```;
+```
+
+
+
+柯里化、大数相加
+
+```
+const arr = [3, 1, 4, 1, 5, 9];
+
+const sortedArr = arr.sort((a, b) => a - b);
+
+console.log(sortedArr);
+
+console.log(arr);
+```
+
+还有包管理工具的底层、幽灵依赖、常见长链接的区别。。。
+
+还有个正则
+
+还有个链表，得搭基础模板来不及
+
+```
+class BaseUI {
+
+  constructor() {
+
+    this.init();
+
+  }
+
+  init() {
+
+    console.log("base init");
+
+  }
+
+  render() {
+
+    console.log("base render");
+
+  }
+
+}
+
+class TestUI extends BaseUI {
+
+  name = "";
+
+  init() {
+
+    super.init();
+
+    console.log("test init");
+
+    this.name = "TestUI";
+
+    console.log("-----name1", this.name);
+
+  }
+
+  render() {
+
+    super.render();
+
+    console.log("test render");
+
+    console.log("-----name2", this.name);
+
+  }
+
+}
+
+const ui = new TestUI();
+
+ui.render();
+
+```
+
+tree-shaking怎么处理副作用知道么，枚举类型打包会有什么问题。。。
+
+问了性能优化衍生的
+
+pnpm软硬链接在么么阶段干了什么事啥的
+
+还问我热更新的底层
+
+这种的不知道也可以蒙，比如tree-shaking首先要判断代码是否是副作用，所以，在模块中的无法穿透模块上下文的东西自然就不可能是带副作用的.
+
+
+
+大数相加和环形链表2
+
+
+
+
+
 ### 项目抽离
 
 vue项目中引入video组件，如何编写  https://www.cnblogs.com/shenjp/p/12066405.html

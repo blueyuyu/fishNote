@@ -39,3 +39,8 @@ git push origin --force --all
 仓库文档：https://github.com/newren/git-filter-repo/blob/main/README.md?spm=5176.28103460.0.0.b7363f99CFk8VJ&file=README.md
 
 阅读推荐：
+
+
+git 开发规范
+1.https://juejin.cn/post/7129001195548622861
+
