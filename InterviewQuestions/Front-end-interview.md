@@ -7656,7 +7656,7 @@ function demo (a, b, c) {
 
 ## 编码题
 
-### **单位转换**
+### **单位转换***
 
 后端返回一个数字，单位是`kb`，而我要展示成 `KB`，`MB` 等形式。大概写一个工具函数
 
@@ -7861,7 +7861,7 @@ console.log(alice.age);  // 输出 30
 
 
 
-### 数组去重
+### 数组去重*
 
 ```typescript
 // First
@@ -7910,7 +7910,7 @@ console.log(formatThousands(9876543210)); // 输出: 9,876,543,210
 
 
 
-### call
+### call*
 
 ```typescript
 // 实现自定义call方法
@@ -7995,7 +7995,7 @@ boundGreet("?"); // 输出 "Hey, Alice?"
 
 
 
-### 深拷贝
+### 深拷贝*
 
 ```typescript
 function deepClone(obj: any, cache = new WeakMap()): any {
@@ -8063,7 +8063,7 @@ console.log(cloned); // 输出与 original 相同但不是同一个引用的对�
 
 
 
-### 柯里化
+### 柯里化*
 
 ```typescript
 function curry(fn: (...args: any[]) => any): (...args: any[]) => any {
@@ -8622,7 +8622,7 @@ class CustomPromise {
 
 
 
-### 写一个通用的方法来获取地址栏的某个参数对应的值，不能使用正则表达式
+### 写一个通用的方法来获取地址栏的某个参数对应的值，不能使用正则表达式*
 
 ```javascript
 // 方法一

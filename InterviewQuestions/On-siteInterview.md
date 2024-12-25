@@ -2143,8 +2143,6 @@ normalize-wheel 与 resize-observer-polyfill
 
 
 
-
-
 ### 腾讯前端面试（两年）：
 
 ```
@@ -2161,6 +2159,8 @@ proxy.a = 'string';
 console.log(proxy.a); // 输出 10
 
 ```
+
+
 
 柯里化、大数相加
 
