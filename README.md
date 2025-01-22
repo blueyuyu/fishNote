@@ -38,14 +38,14 @@
 
 
 ## 💙  打包知识
-[下包](/build/pnpm.md)
+[pnpm](/build/pnpm.md)&nbsp; &nbsp;|&nbsp;&nbsp;[vite](/build/pnpm.md)&nbsp;&nbsp;|&nbsp;&nbsp;[webpack](/build/pnpm.md)
 
 
 ## 🧡  面试整理
 
 ---
 
-[2024年收录前端面试题（不完整版）](/InterviewQuestions/Front-end-interview.md)
+[2024年收录前端面试题](/InterviewQuestions/Front-end-interview.md)
 
 [2024年线下前端面试题](/InterviewQuestions/On-siteInterview.md)
 
