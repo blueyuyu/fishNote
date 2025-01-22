@@ -162,7 +162,25 @@ less代码变量设置
 }
 ```
 
-## 111
+## jeccg
+
+table 内的配置
+
+```echarts
+// 列表页面公共参数、方法
+const { tableContext } = useListPage({
+    designScope: 'basic-table-demo-ajax',
+    tableProps: {
+        api: fetchMockData,
+        afterFetch: getListApi,
+        columns: columns,
+        actionColumn: {
+            width: 120,
+        },
+        showTableSetting: false,
+    },
+});
+```
 
 ## mock请求
 
@@ -183,11 +201,6 @@ const [registerInnerModal, { closeModal, setModalProps }] = useModalInner(({ rec
     });
 });
 ```
-
-
-
-
-
 
 ## ts 请求
 
