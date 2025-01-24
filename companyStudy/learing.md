@@ -166,7 +166,7 @@ less代码变量设置
 
 table 内的配置
 
-```echarts
+```
 // 列表页面公共参数、方法
 const { tableContext } = useListPage({
     designScope: 'basic-table-demo-ajax',
