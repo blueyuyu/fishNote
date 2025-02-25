@@ -3,7 +3,7 @@
 ```
 .ant-row {
     display: flex;
-    flex-flow: row wrap; 
+    flex-flow: row wrap;
     min-width: 0;
 }
 ```
@@ -23,7 +23,7 @@ flex-flow: row nowrap;
 }
 ```
 
-## 解决3.0 form 与全局样式冲突问题，宽度问题
+## 解决 3.0 form 与全局样式冲突问题，宽度问题
 
 ```
 // 修复因为某个页面ant-col 设置为 100% 导致的全局样式问题
@@ -37,9 +37,9 @@ flex-flow: row nowrap;
 }
 ```
 
-## less代码变量
+## less 代码变量
 
-less代码变量设置
+less 代码变量设置
 
 ```
 @input-bg-color: #FCFCFC;
@@ -55,7 +55,7 @@ less代码变量设置
 }
 ```
 
-# 修改ant-form 表单元素的属性的背景样式
+# 修改 ant-form 表单元素的属性的背景样式
 
 ```
 @input-bg-color: #FCFCFC;
@@ -186,7 +186,7 @@ const { tableContext } = useListPage({
 
 使用
 
-## 使用ant 创建弹框组件，有校验
+## 使用 ant 创建弹框组件，有校验
 
 ```
  <template>
@@ -382,7 +382,7 @@ const { tableContext } = useListPage({
 
   const dataSetList = ref<SelectProps['options']>([]);
   const versionList = ref<SelectProps['options']>([]);
-  const partitions = ref([]) as any;  
+  const partitions = ref([]) as any;
   const resourceList = ref();
   const memory = ref({
     // memoryUnit: 'Gi',
@@ -486,9 +486,9 @@ const { tableContext } = useListPage({
 
 ```
 
-## 其他jett
+## 其他 jett
 
-form使用
+form 使用
 
 ```
 
@@ -504,7 +504,7 @@ const [registerInnerModal, { closeModal, setModalProps }] = useModalInner(({ rec
 });
 ```
 
-## mock请求
+## mock 请求
 
 ```
 function returnPromise<T>(result: any, code = 200, timeout = 500): Promise<[]> {
@@ -532,5 +532,74 @@ const mockListData = [
 export function fetchMockData() {
   return returnPromise(mockListData);
 }
-  
+
+```
+
+## 简单的流式图片操作
+
+使用 column-count 进行列限制
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #242223;
+        }
+
+        img {
+            width: 100%;
+            margin-bottom: 1em;
+        }
+
+        /* flexbox布局 */
+        .layout-container {
+            column-count: 3;
+        }
+
+        @media screen and (max-width: 600px) {
+            .layout-container {
+                column-count: 2;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layout-container">
+        <div class="image-container" id="image-container">
+            <img src="./assets/1.jpg">
+            <img src="./assets/2.jpg">
+            <img src="./assets/3.jpg">
+            <img src="./assets/4.jpg">
+            <img src="./assets/5.jpg">
+            <img src="./assets/6.jpg">
+            <img src="./assets/7.jpg">
+            <img src="./assets/8.jpg">
+            <img src="./assets/9.jpg">
+            <img src="./assets/10.jpg">
+        </div>
+        <button onclick="loadMoreImages()">加载更多图片</button>
+    </div>
+
+    <script>
+        function loadMoreImages() {
+            const imageContainer = document.getElementById('image-container');
+            const newImages = [11, 12, 13].map((i) => {
+                const img = document.createElement('img');
+                img.src = `./assets/${i}.jpg`;
+                return img;
+            });
+            newImages.forEach((img) => {
+                imageContainer.appendChild(img);
+            });
+        }
+    </script>
+</body>
+
+</html>
 ```
