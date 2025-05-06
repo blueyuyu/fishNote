@@ -14,10 +14,10 @@
 ---
 
 > <u>说明</u>：基于[docsify](https://docsify.js.org/#/zh-cn/?id=docsify)文档网站生成器记录所学知识，便于日后复习与总结。
->
+> 
 > 笔记地址：[鱼鱼鱼的笔记](https://blueyuyu.github.io/fishNote/)
 > 文档中有任何错误，请提issue或者pr
->
+> 
 > email: ublueyuyuyu@gmail.com （想要加入前端项目的面试题编辑的宝子，请邮件告诉我）
 
 ## 🧡  框架原理
@@ -36,10 +36,9 @@
 
 #### **ui封装源码系列（wait）**<!-- {docsify-ignore} -->
 
-
 ## 💙  打包知识
-[pnpm](/build/pnpm.md)&nbsp; &nbsp;|&nbsp;&nbsp;[vite](/build/pnpm.md)&nbsp;&nbsp;|&nbsp;&nbsp;[webpack](/build/pnpm.md)
 
+[pnpm](/build/pnpm.md)&nbsp; &nbsp;|&nbsp;&nbsp;[vite](/build/pnpm.md)&nbsp;&nbsp;|&nbsp;&nbsp;[webpack](/build/pnpm.md)
 
 ## 🧡  面试整理
 
@@ -69,6 +68,12 @@
 
 ---
 
+## 💚  副业注意事项
+
+---
+
+[经验总结](/avocation/result.md)
+
 ## 💙  推荐学习项目目录（等待整理）
 
 ---
@@ -80,3 +85,8 @@
 ## 🐟  鱼鱼鱼的碎碎念~~~
 
 ---
+
+[日记记录 2025](/journal/blueMemory25.md)
+
+[日记记录 2024](/journal/blueMemory.md)
+
