@@ -1,3 +1,84 @@
+## ant pagination 分页逻辑
+
+```
+          <a-input-search
+            v-model:value="formState.searchKey"
+            placeholder="请输入关键字查询"
+            style="width: 250px"
+            @search="onSearchName"
+            @change="clearInputFn"
+            enter-button
+            allowClear
+          />
+
+<a-pagination
+          v-model:current="pageParams.params.pageNo"
+          v-model:pageSize="pageParams.params.pageSize"
+          :pageSizeOptions="pageSizeOptions"
+          show-size-changer
+          :total="pageParams.total"
+          @change="onShowSizeChange" />
+```
+
+```
+// 有input search 
+ type FormType = {
+    searchKey?: String;
+    sortOrder?: 'asc' | 'desc';
+    sortColumn: String;
+  }
+  const formState = ref<FormType>({
+    searchKey: '',
+    sortOrder: 'asc',
+    sortColumn: 'createTime',
+  });
+
+  const pageParams = ref({
+    params: {
+      pageSize: 9,
+      pageNo: 1,
+    },
+    total: 0,
+  });
+  const pageSizeOptions = reactive(['9', '12', '30', '60', '90']);
+  const loading = ref(false);
+ const onShowSizeChange = (current: number, pageSize: number) => {
+    pageParams.value.params = { ...pageParams.value.params, pageNo: current, pageSize: pageSize };
+    // getModelPageList();
+  };
+  const onSearchName = () => {
+    // 通过更改 params , watch 监听，掉用
+    pageParams.value.params = { ...pageParams.value.params, pageNo: 1 };
+    // getModelPageList(formState.value);
+  };
+// 注意： 为了保证页码一致，带条件搜索的时候，页码要记得归一
+// pageParams.value.params = { ...pageParams.value.params, pageNo: 1 };
+
+// 数据更改
+  const getModelPageList = (params?: Object) => {
+    loading.value = true;
+    modelPageList({ ...pageParams.value.params, ...params, public: true, labelList: tags })
+      .then((res) => {
+        resultNum.value = res.total;
+        modelList.value = res.records;
+        pageParams.value.total = res.total;
+      })
+      .catch(() => {})
+      .finally(() => {
+        loading.value = false;
+      });
+  };
+
+// 监听 params 变化，再调用，或者在onShowSizeChange 调用
+  watch(
+    () => pageParams.value.params,
+    (val) => {
+      getModelPageList(formState.value);
+    },
+    { deep: true, immediate: true }
+  );
+```
+
 ## .ant-row 导致 使用 a-row 的元素，换行排列
 
 ```
@@ -55,7 +136,59 @@ less 代码变量设置
 }
 ```
 
-# 修改 ant-form 表单元素的属性的背景样式
+# 修改 ant-form 表单元素的属性的背景样式， 选项框
+
+![1747625425364](images/learning/1747625425364.png)
+
+```
+// template
+        <a-radio-group v-model:value="formState.isRequired">
+          <a-radio-button v-for="item in selectList" :key="item.value" :value="item.value">{{ item.label }}</a-radio-button>
+        </a-radio-group>
+
+// js
+  const selectList = [
+    { label: '必填', value: true },
+    { label: '非必填', value: false },
+  ];
+
+// css
+// radio 选中样式
+:deep(.ant-radio-group) {
+    display: flex;
+}
+
+:deep(.ant-radio-button-wrapper) {
+    flex: 1;
+    text-align: center;
+    border-radius: 0%;
+}
+
+:deep(.ant-radio-button-wrapper:first-child) {
+    margin-right: 12px;
+}
+
+:deep(.ant-radio-button-wrapper:hover) {
+    color: #194787;
+}
+
+:deep(.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):hover) {
+    .set-btn-hovor-color(@btn-font-color)
+}
+
+:deep(.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled)) {
+    .set-btn-hovor-color(@btn-font-color)
+}
+
+:deep(.ant-radio-button-wrapper-checked::after) {
+    content: url("../../../../assets/icons/check-mark.svg");
+    position: absolute;
+    bottom: 8px;
+    right: 4px;
+    width: 12px;
+    height: 12px;
+}
+```
 
 ```
 @input-bg-color: #FCFCFC;
@@ -180,8 +313,6 @@ const { tableContext } = useListPage({
         showTableSetting: false,
     },
 });
-
-
 ```
 
 使用
@@ -189,7 +320,7 @@ const { tableContext } = useListPage({
 ## 使用 ant 创建弹框组件，有校验
 
 ```
- <template>
+<template>
 <a-button type="text" @click="() => handleTuning(item)">微调</a-button>
 <FineTuningModel v-model:visible="tuningDrawerVisible" :modelInfo="selectedModelInfo" />
 </template>
@@ -483,7 +614,6 @@ const { tableContext } = useListPage({
 </script>
 
 <style lang="less" scoped></style>
-
 ```
 
 ## 其他 jett
@@ -491,9 +621,6 @@ const { tableContext } = useListPage({
 form 使用
 
 ```
-
-
-
 const [registerInnerModal, { closeModal, setModalProps }] = useModalInner(({ record }) => {
     // 此处回显数据
     //TODO 此处回显数据
@@ -532,14 +659,49 @@ const mockListData = [
 export function fetchMockData() {
   return returnPromise(mockListData);
 }
+```
+
+## 页面基础
+
+![1747635123599](images/learning/1747635123599.png)
+
+```
+<template>
+  <div class="h-full box-border px-27px pt-16px pb-10px deviceManagement">
+    <div class="deviceManagement-container w-full h-full box-border pt-19px px-28px"> 123 </div>
+  </div>
+</template>
+
+<script setup>
+
+</script>
+
+<style lang="less" scoped>
+  .deviceManagement {
+    .deviceManagement-container {
+      background: #ffffff;
+      box-shadow: 0px 3px 6px 1px rgba(0, 0, 0, 0.16);
+      border-radius: 5px 5px 5px 5px;
+    }
+  }
+</style>
 
 ```
 
-## 简单的流式图片操作
+## 基础的Table 增删改查
+
+## 
+
+
+
+
+
+简单的流式图片操作
 
 使用 column-count 进行列限制
 
 ```
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -602,4 +764,5 @@ export function fetchMockData() {
 </body>
 
 </html>
+
 ```
