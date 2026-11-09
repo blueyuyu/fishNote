@@ -23,6 +23,18 @@
 >
 > email: ublueyuyuyu@gmail.com （想要加入前端项目的面试题编辑的宝子，请邮件告诉我）
 
+##  🧡  AI
+
+------
+
+
+
+#### **AI学习**<!-- {docsify-ignore} -->
+
+[学习路线](/ai/learnList.md)
+
+[AI 基础1](/ai/AgentBasic/basic1.md)
+
 
 ##  🧡  框架原理
 
