@@ -1,15 +1,13 @@
+* AI学习
+  
+  * [学习路线](/ai/learnList.md)
+
+  * [AI 基础1](/ai/AgentBasic/basic1.md)
 * 面试题
   
   * [2024年收录前端面试题](/InterviewQuestions/Front-end-interview.md)
   * [2024年线下前端面试题](/InterviewQuestions/On-siteInterview.md)
   * [js原理](/js/JSprinciple.md)
-* web开发
-  
-  * [css的学习之路](/css/css.md)
-  * [uni-app开发速查](/css/uniAppCss.md)
-  * [ts学习](/tsLearning/example.md)
-  * [next学习](/React/next/learning.md)
-  * [打包构建](/build/pnpm.md)
 * 源码学习
   
   * [学习路线](/vuePrinciple/day01.md)
