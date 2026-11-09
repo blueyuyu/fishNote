@@ -1,9 +1,6 @@
-
-
 ## 前端现场面试
 
 风浪越大鱼越贵。
-
 
 ### 🍋 柠檬云财税
 
@@ -43,13 +40,9 @@ content是设置间隔；items设置居中之类的
 }
 ```
 
-
-
 #### 代码回退
 
 Git reset | **Git revert**(推荐使用)
-
-
 
 #### linux 如何获取全部目录
 
@@ -82,8 +75,6 @@ try_files $uni $uni /index.html;
 }
 ```
 
-
-
 #### 关于数组处理方法  slice splice 与 split
 
 Slice() 函数用于提取原数组的一部分，返回一个新数组，原数组不会被修改;
@@ -92,11 +83,7 @@ Splice() 用于通过删除现有元素和/或添加新元素来更改原数组�
 
 Split() 指定的分隔符将一个字符串分割成一个数组
 
-
-
 常用的数组方法，字符串处理方法？
-
-
 
 #### 数组去重的几种方法
 
@@ -181,8 +168,6 @@ const logout = () => {
 };
 ```
 
-
-
 #### Ts中type与interface的区别？
 
 `type` 和 `interface` 在 TypeScript 中都可以用于定义复杂类型，但它们在声明方式、扩展、合并声明和类型表示等方面有所不同。`type` 更灵活，支持更多类型表示，而 `interface` 更适用于描述对象结构，可以进行合并声明。
@@ -222,15 +207,11 @@ max 属性用于限制可以缓存的最大组件实例数量。
 
 参考：https://blog.csdn.net/qq_43477721/article/details/120629036
 
-
-
 #### 考了代码执行顺序，事件循环相关的？
 
 （记住！Prmoise里面的代码是同步操作）
 
-
-
-###  🥥 迪xx科技公司
+### 🥥 迪xx科技公司
 
 #### Vue2原理？
 
@@ -261,7 +242,6 @@ Vue2里的data()为啥是函数？
    - 用于给元素或组件的进入和离开添加过渡效果。
    - `<transition>` 用于单个元素或组件的过渡。
    - `<transition-group>` 用于列表中多个元素或组件的过渡，并且可以对列表中的元素进行排序、插入和删除。
-
 2. **<teleport>** (Vue 3+):
 
    - 用于将组件的内容渲染到 DOM 中的不同位置，而不是组件的当前位置。
@@ -279,8 +259,6 @@ Vue2里的data()为啥是函数？
      </teleport>
    ```
 
-   ​
-
 #### 常用的vue指令？
 
 v-on (@)  v-bind (: 单向传输) v-model(双向数据绑定，v-model只能应用在表单类元素（如：input、select等）)
@@ -293,11 +271,7 @@ v-show v-if v-text v-for v-once
 
 ##### 钩子函数里有哪些参数？
 
- 
-
 让你实现一个dialog拖拽的自定义指令？该怎么实现？（给了些思路）
-
-
 
 路由有哪些守卫？组件内部的一些首位？
 
@@ -315,8 +289,6 @@ Interface与type的区别？
 
 如何针对不同角色看到的菜单不一样？路由权限？
 
-
-
 #### 代码如何优化？打包做了什么优化？
 
 ###### webpack 打包优化
@@ -333,23 +305,23 @@ Html文件代码压缩 （HtmlWebpackPlugin ）
 
 Tree Shaking （消除死代码、    optimization:{
 
-​        usedExports
+```
+usedExports
+```
 
-​    }）
+```
+}）
+```
 
 代码分离 （splitChunksPlugin 进行代码分离）
 
 内联 chunk
 
- 
-
 ###### vite打包优化
 
 推荐：
 
-<https://developer.aliyun.com/article/1441756>
-
- 
+[https://developer.aliyun.com/article/1441756](https://developer.aliyun.com/article/1441756)
 
 代码拆分:
 
@@ -369,8 +341,6 @@ Tree Shaking （消除死代码、    optimization:{
 
 开启浏览器缓存。
 
- 
-
 提高构建速度：
 
 优化 loader 配置
@@ -389,45 +359,26 @@ terser 启动多线程
 
 合理使用 sourceMap
 
- 
-
- 
-
 21. 页面渲染10万条数据？（可能是虚拟列表）
-
-
 
 10万条一般还是建议做分页处理的。这里问的是虚拟列表，个人感觉虚拟列表没必要掌握，属于极端情况。
 
-
-
 22. 大文件上传的具体步骤？通过什么方法上传？
-
 23. 浏览器缓存有了解过吗？
-
 24. 能一个人做一个项目嘛？（这里开始换面试官）
-
 25. **路由的钩子函数怎么挂载到vue？**
-
 26. Element-ui组件库里使用到extends 继承，在组件库里哪个组件使用过? 冷门api
-
 27. Vite脚手架，有做过哪些优化嘛？
-
 28. 有没有自己写过插件？
-
 29. **可视化大屏三维有了解过吗？笔记本电脑可以放大到很大，以及20分辨率，4000分辨率，像这种问题，怎么做一个兼容性处理？**
-
 30. 有看过哪些东西的源码？
-
 31. **表单的校验交互，内部的实现逻辑，怎么触发表单的某一项的错误提示的？**
 
 **从0到1，从input开始，书写校验规则，如何去触发校验？（提示：input不会触发自己的事件）input会直接触发form表单内的校验**。
 
+### 🥨 大和医疗
 
-
-###  🥨 大和医疗
-
-####  ❗ toRef与toRefs的区别是什么？
+#### ❗ toRef与toRefs的区别是什么？
 
 toRefs 批量处理对象中的所有属性,第一层，变成响应式
 
@@ -460,9 +411,7 @@ const state = reactive({
 const a = {...toRefs(state)}
 ```
 
-
-
-####  ❗ Render与template的区别是什么？Render来写slot该怎么写？
+#### ❗ Render与template的区别是什么？Render来写slot该怎么写？
 
 (用h函数构造组件的写法，我还是有点不懂！！！)
 
@@ -512,8 +461,6 @@ render() {
 </child-component>
 ```
 
-
-
 **下面是关于h函数的代码**
 
 ```
@@ -550,13 +497,11 @@ export default {
 </script>
 ```
 
-
-
 NextTick() 在事件循环中属于异步的微任务，似乎是本轮循环执行的操作？
 
 10人两两握手，一共握手几次？
 
-###  ❗ ❗ 关于webpack打包了解多少？
+### ❗ ❗ 关于webpack打包了解多少？
 
 ```
 配置一些常见的loader
@@ -578,26 +523,21 @@ mini-css-extract-plugin
 
 Vite打包的优化策略了解多少？
 
-
-
 Ts有哪些类型？
 
 给你一个老项目，发现启动不了？怎么分析？
 
-
-
-
-###  🥩 大华科技
+### 🥩 大华科技
 
 1. 标签语义化：
 
 通过标签本身的意义来优化文档结构。
 
-####  ❗  如何实现多个标签页之间的通讯
+#### ❗  如何实现多个标签页之间的通讯
 
 参考文章：https://blog.csdn.net/AdminGuan/article/details/134076898
 
--  使用LocalStorage或SessionStorage来进行通讯。
+- 使用LocalStorage或SessionStorage来进行通讯。
 
 当一个标签页修改了存储的数据时，其他标签页可以监听Storage事件来获取最新的数据。
 
@@ -618,8 +558,6 @@ window.addEventListener('storage', function(event) {
 /* 在另一个标签页中更新数据到 LocalStorage 或 SessionStorage */
 localStorage.setItem('shareData', '标签页222');
 ```
-
- 
 
 - #### Shared Worker
 
@@ -647,31 +585,43 @@ self.onconnect = function(event) {
 };
 ```
 
-
-
-####  ❗  如何监听到页面localStorage的修改？
+#### ❗  如何监听到页面localStorage的修改？
 
 **当存储区域（localStorage 或 sessionStorage）被修改时，将触发 storage 事件****。**
 
 mounted() {
 
-​    const that = this;
+```
+const that = this;
+```
 
-​    //监听缓存中指定key的值变化
+```
+//监听缓存中指定key的值变化
+```
 
-​    window.addEventListener(**'storage'**, function (e) {
+```
+window.addEventListener(
+```
 
-​      if(e.key && e.key == 'socketQuery' && e.newValue){
+**'storage'**, function (e) {
 
-​        that.socketQuery = e.newValue //即可获取到【页面A】最新的socketQuery
+```
+if(e.key && e.key == 'socketQuery' && e.newValue){
+```
 
-​      }
+```
+that.socketQuery = e.newValue //即可获取到【页面A】最新的socketQuery
+```
 
-​    })
+```
+}
+```
 
- },
+```
+})
+```
 
- 
+},
 
 4. 单行文本超过
 
@@ -686,8 +636,6 @@ White-space: nowrap;
 
 }
 ```
-
- 
 
 5. 多行文本，用子绝父相，定位的方式去掩盖超出部分
 
@@ -720,11 +668,9 @@ White-space: nowrap;
 
 ```
 
- 
+#### ❗  **多tab栏，缓存，页面更新，如何刷新其他tab的数值？**
 
-####  ❗  **多tab栏，缓存，页面更新，如何刷新其他tab的数值？**
-
-关于： <keep-alive></keep-alive>  
+关于： <keep-alive></keep-alive>
 
 关于keep-alive缓存了页面组件
 
@@ -762,10 +708,6 @@ export default {
 
 2. 配合router组件里的meta:{} 设置，是否缓存组件，只有有表单的才触发缓存机制，其他的不进行缓存。
 
-
-
-
-
 如果是已经缓存的组件：
 
 · 在 Vuex 的 state 中保存当前页面的一些状态,如搜索条件、分页信息等
@@ -774,19 +716,13 @@ export default {
 
 · 在原先的页面组件中,通过 Vuex 的 mapState 获取这些状态,并在 watch 中监听状态的变化,从而实现页面的刷新
 
- 
-
 或者是在 keep-alive组件的：
 
 在原先的页面组件中,通过**监听 activated 和 deactivated 钩子函数**,在页面激活时刷新页面。
 
- 
-
 7. **如果浏览器突然卡顿该如何去排查？（场景题）**
 
 从渲染和运行两方面去排查：
-
- 
 
 1. 渲染不及时，页面掉帧：
 
@@ -794,27 +730,16 @@ export default {
 
 Js线程与GUI线程互斥，js请求回来的太慢，会影响到GUI的渲染。
 
- 
-
 2. 回流重绘太多，可以适当的减少一些dom操作；
 
 减少获取scrollTop、clentWidth的次数，或者获取之后存起来。
-
- 
 
 3. 加载的资源引起的阻塞。
 
 （js资源放在body之前、行内script阻塞、css加载会阻塞DOM树渲染（css并不会阻塞DOM树的解析、资源过大阻塞）
 
- 
-
 4. dom节点或事件占用内存过大。
-
 5. 内存泄露。
-
-
-
-
 
 笔试题：解析url输出
 
@@ -826,33 +751,55 @@ Age: 16
 
 }
 
-​      function getParams(url) {
+```
+function getParams(url) {
+```
 
-​        let temParams = url.match(/([^?&#]+)=([^?&#]+)/g)
+```
+let temParams = url.match(/([^?&#]+)=([^?&#]+)/g)
+```
 
-​        if (temParams == null) return false;
+```
+if (temParams == null) return false;
+```
 
-​        let params = {}
+```
+let params = {}
+```
 
-​        temParams.forEach((item) => {
+```
+temParams.forEach((item) => {
+```
 
-​          let index = item.indexOf('=')
+```
+let index = item.indexOf('=')
+```
 
-​          let key = item.slice(0, index)
+```
+let key = item.slice(0, index)
+```
 
-​          let value = item.slice(index + 1)
+```
+let value = item.slice(index + 1)
+```
 
-​          params[key] = value
+```
+params[key] = value
+```
 
-​        })
+```
+})
+```
 
-​        return params;
+```
+return params;
+```
 
-​      }
+```
+}
+```
 
 getParams('http://www.baidu.com/?keyWord=key_word&number=90');
-
- 
 
 ### 🥕  数字马力
 
@@ -862,123 +809,107 @@ HTML <label> 元素（标签）表示用户界面中某个元素的说明。
 
 行内元素，多用于为表单内提供标签（标识），for 属性内填写该label 绑定的元素的id。
 
+```
+Label 中有两个属性是非常有用的,一个是FOR、另外一个就是ACCESSKEY了。
+```
 
+```
+FOR属性
+```
 
-​     Label 中有两个属性是非常有用的,一个是FOR、另外一个就是ACCESSKEY了。
+```
+功能：表示Label标签要绑定的HTML元素，你点击这个标签的时候，所绑定的元素将获取焦点。
+```
 
-​    FOR属性
-
-​     功能：表示Label标签要绑定的HTML元素，你点击这个标签的时候，所绑定的元素将获取焦点。
-
-​     用法：
+```
+用法：
+```
 
 ```
 <Label FOR=”InputBox”>姓名</Label><input ID=”InputBox” type=”text”>
 ```
 
-​    ACCESSKEY属性：
+```
+ACCESSKEY属性：
+```
 
-​     功能：表示访问Label标签所绑定的元素的热键，当您按下热键，所绑定的元素将获取焦点。
+```
+功能：表示访问Label标签所绑定的元素的热键，当您按下热键，所绑定的元素将获取焦点。
+```
 
-​     用法：
+```
+用法：
+```
 
 ```
 <Label FOR=”InputBox” ACCESSKEY＝”N”>姓名</Label><input ID=”InputBox” type=”text”>
 ```
 
-​    局限性：accessKey属性所设置的快捷键不能与浏览器的快捷键冲突，否则将优先激活浏览器的快捷键。
-
-
+```
+局限性：accessKey属性所设置的快捷键不能与浏览器的快捷键冲突，否则将优先激活浏览器的快捷键。
+```
 
 示例代码：
 
 <label for="username">Click me</label> <input type="text" id="username" />
 
-参考链接：<https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/label#%E6%97%A0%E9%9A%9C%E7%A2%8D%E9%97%AE%E9%A2%98>
+参考链接：[https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/label#%E6%97%A0%E9%9A%9C%E7%A2%8D%E9%97%AE%E9%A2%98](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/label#%E6%97%A0%E9%9A%9C%E7%A2%8D%E9%97%AE%E9%A2%98)
 
- 
-
- 
-
-####  ❗  关于封装头部与底部导航栏的一些思路
+#### ❗  关于封装头部与底部导航栏的一些思路
 
 以头部导航栏举例：
 
 需要考虑键盘问题、胶囊安全距离、返回处理问题。
 
- 
-
 Uni-app自己的导航就有解决了键盘问题。
 
 胶囊安全距离：胶囊是iOS底部的那个横杠，那个封装一个通用函数，中间高度算的时候减去就行。可以通过api动态获取底部安全距离，再根据距离进行处理。（等下找个项目看看吧）
 
- 
-
 uni.getSysteminfo({
 
-  success: res => {
+success: res => {
 
-​    let safeArea = res.safeAreaInsets.bottom;
+```
+let safeArea = res.safeAreaInsets.bottom;
+```
 
-  }
+}
 
 })
 
- 
-
 返回处理问题：
 
-![img](http://www.kdocs.cn/api/v3/office/copy/c3A5MGNXQUN4UjE5UlllRmJ0a0VQK1RMSmNDNE9GcGNRNW1CNExuUjJBQ0xONEpTU3pwMlhQN2RpTm94RHU3SGFGT2N6bG4wakdpQnkzem8yU2M2QlRqVVhQM1dHTTQ4VURTL29kaVpjclBWejIyOUJtUTZGZVFobEJuRUNWVzM1c3E1bitVT0RRS2dxWjZ2a3ZQZ2xkU041QTY4eUYxQVpXRW1EUkhVeTRiYVJTQXVYNGNnU1hsTDBIMFc0Q3BlNFhBdmh4UXhjRmRPMEovcHZ4dyswYnlMZitUbUx5YTIxVmY0RktBRDRMa1kxUlQxMUlFdVEwalZUQlNkYUNMZFBPVC8wdlJDMGVrPQ==/attach/object/0fd56e4a31de239ea3e50bd72e1c3715f1c2b76d?) 
+![img](http://www.kdocs.cn/api/v3/office/copy/c3A5MGNXQUN4UjE5UlllRmJ0a0VQK1RMSmNDNE9GcGNRNW1CNExuUjJBQ0xONEpTU3pwMlhQN2RpTm94RHU3SGFGT2N6bG4wakdpQnkzem8yU2M2QlRqVVhQM1dHTTQ4VURTL29kaVpjclBWejIyOUJtUTZGZVFobEJuRUNWVzM1c3E1bitVT0RRS2dxWjZ2a3ZQZ2xkU041QTY4eUYxQVpXRW1EUkhVeTRiYVJTQXVYNGNnU1hsTDBIMFc0Q3BlNFhBdmh4UXhjRmRPMEovcHZ4dyswYnlMZitUbUx5YTIxVmY0RktBRDRMa1kxUlQxMUlFdVEwalZUQlNkYUNMZFBPVC8wdlJDMGVrPQ==/attach/object/0fd56e4a31de239ea3e50bd72e1c3715f1c2b76d?)
 
-![img](http://www.kdocs.cn/api/v3/office/copy/c3A5MGNXQUN4UjE5UlllRmJ0a0VQK1RMSmNDNE9GcGNRNW1CNExuUjJBQ0xONEpTU3pwMlhQN2RpTm94RHU3SGFGT2N6bG4wakdpQnkzem8yU2M2QlRqVVhQM1dHTTQ4VURTL29kaVpjclBWejIyOUJtUTZGZVFobEJuRUNWVzM1c3E1bitVT0RRS2dxWjZ2a3ZQZ2xkU041QTY4eUYxQVpXRW1EUkhVeTRiYVJTQXVYNGNnU1hsTDBIMFc0Q3BlNFhBdmh4UXhjRmRPMEovcHZ4dyswYnlMZitUbUx5YTIxVmY0RktBRDRMa1kxUlQxMUlFdVEwalZUQlNkYUNMZFBPVC8wdlJDMGVrPQ==/attach/object/cf00229663d5893dc64ece5b9fd8e0c19fe86bd9?) 
-
- 
+![img](http://www.kdocs.cn/api/v3/office/copy/c3A5MGNXQUN4UjE5UlllRmJ0a0VQK1RMSmNDNE9GcGNRNW1CNExuUjJBQ0xONEpTU3pwMlhQN2RpTm94RHU3SGFGT2N6bG4wakdpQnkzem8yU2M2QlRqVVhQM1dHTTQ4VURTL29kaVpjclBWejIyOUJtUTZGZVFobEJuRUNWVzM1c3E1bitVT0RRS2dxWjZ2a3ZQZ2xkU041QTY4eUYxQVpXRW1EUkhVeTRiYVJTQXVYNGNnU1hsTDBIMFc0Q3BlNFhBdmh4UXhjRmRPMEovcHZ4dyswYnlMZitUbUx5YTIxVmY0RktBRDRMa1kxUlQxMUlFdVEwalZUQlNkYUNMZFBPVC8wdlJDMGVrPQ==/attach/object/cf00229663d5893dc64ece5b9fd8e0c19fe86bd9?)
 
 3. 如何看待uni-app这个框架？
 
-![img](http://www.kdocs.cn/api/v3/office/copy/c3A5MGNXQUN4UjE5UlllRmJ0a0VQK1RMSmNDNE9GcGNRNW1CNExuUjJBQ0xONEpTU3pwMlhQN2RpTm94RHU3SGFGT2N6bG4wakdpQnkzem8yU2M2QlRqVVhQM1dHTTQ4VURTL29kaVpjclBWejIyOUJtUTZGZVFobEJuRUNWVzM1c3E1bitVT0RRS2dxWjZ2a3ZQZ2xkU041QTY4eUYxQVpXRW1EUkhVeTRiYVJTQXVYNGNnU1hsTDBIMFc0Q3BlNFhBdmh4UXhjRmRPMEovcHZ4dyswYnlMZitUbUx5YTIxVmY0RktBRDRMa1kxUlQxMUlFdVEwalZUQlNkYUNMZFBPVC8wdlJDMGVrPQ==/attach/object/8014e34a1b42c8841db736bfc72daa7ef9b325da?) 
+![img](http://www.kdocs.cn/api/v3/office/copy/c3A5MGNXQUN4UjE5UlllRmJ0a0VQK1RMSmNDNE9GcGNRNW1CNExuUjJBQ0xONEpTU3pwMlhQN2RpTm94RHU3SGFGT2N6bG4wakdpQnkzem8yU2M2QlRqVVhQM1dHTTQ4VURTL29kaVpjclBWejIyOUJtUTZGZVFobEJuRUNWVzM1c3E1bitVT0RRS2dxWjZ2a3ZQZ2xkU041QTY4eUYxQVpXRW1EUkhVeTRiYVJTQXVYNGNnU1hsTDBIMFc0Q3BlNFhBdmh4UXhjRmRPMEovcHZ4dyswYnlMZitUbUx5YTIxVmY0RktBRDRMa1kxUlQxMUlFdVEwalZUQlNkYUNMZFBPVC8wdlJDMGVrPQ==/attach/object/8014e34a1b42c8841db736bfc72daa7ef9b325da?)
 
- 
-
-![img](http://www.kdocs.cn/api/v3/office/copy/c3A5MGNXQUN4UjE5UlllRmJ0a0VQK1RMSmNDNE9GcGNRNW1CNExuUjJBQ0xONEpTU3pwMlhQN2RpTm94RHU3SGFGT2N6bG4wakdpQnkzem8yU2M2QlRqVVhQM1dHTTQ4VURTL29kaVpjclBWejIyOUJtUTZGZVFobEJuRUNWVzM1c3E1bitVT0RRS2dxWjZ2a3ZQZ2xkU041QTY4eUYxQVpXRW1EUkhVeTRiYVJTQXVYNGNnU1hsTDBIMFc0Q3BlNFhBdmh4UXhjRmRPMEovcHZ4dyswYnlMZitUbUx5YTIxVmY0RktBRDRMa1kxUlQxMUlFdVEwalZUQlNkYUNMZFBPVC8wdlJDMGVrPQ==/attach/object/1e0d8a5572f92825e0f7a67ace440ba9a9ed877c?) 
-
- 
+![img](http://www.kdocs.cn/api/v3/office/copy/c3A5MGNXQUN4UjE5UlllRmJ0a0VQK1RMSmNDNE9GcGNRNW1CNExuUjJBQ0xONEpTU3pwMlhQN2RpTm94RHU3SGFGT2N6bG4wakdpQnkzem8yU2M2QlRqVVhQM1dHTTQ4VURTL29kaVpjclBWejIyOUJtUTZGZVFobEJuRUNWVzM1c3E1bitVT0RRS2dxWjZ2a3ZQZ2xkU041QTY4eUYxQVpXRW1EUkhVeTRiYVJTQXVYNGNnU1hsTDBIMFc0Q3BlNFhBdmh4UXhjRmRPMEovcHZ4dyswYnlMZitUbUx5YTIxVmY0RktBRDRMa1kxUlQxMUlFdVEwalZUQlNkYUNMZFBPVC8wdlJDMGVrPQ==/attach/object/1e0d8a5572f92825e0f7a67ace440ba9a9ed877c?)
 
 4. Uni-app是如何实现多平台之间的适配的？
 
-![img](http://www.kdocs.cn/api/v3/office/copy/c3A5MGNXQUN4UjE5UlllRmJ0a0VQK1RMSmNDNE9GcGNRNW1CNExuUjJBQ0xONEpTU3pwMlhQN2RpTm94RHU3SGFGT2N6bG4wakdpQnkzem8yU2M2QlRqVVhQM1dHTTQ4VURTL29kaVpjclBWejIyOUJtUTZGZVFobEJuRUNWVzM1c3E1bitVT0RRS2dxWjZ2a3ZQZ2xkU041QTY4eUYxQVpXRW1EUkhVeTRiYVJTQXVYNGNnU1hsTDBIMFc0Q3BlNFhBdmh4UXhjRmRPMEovcHZ4dyswYnlMZitUbUx5YTIxVmY0RktBRDRMa1kxUlQxMUlFdVEwalZUQlNkYUNMZFBPVC8wdlJDMGVrPQ==/attach/object/6fc4d9a8e5016cabaa5dd8495b825f3dc0a953ae?) 
+![img](http://www.kdocs.cn/api/v3/office/copy/c3A5MGNXQUN4UjE5UlllRmJ0a0VQK1RMSmNDNE9GcGNRNW1CNExuUjJBQ0xONEpTU3pwMlhQN2RpTm94RHU3SGFGT2N6bG4wakdpQnkzem8yU2M2QlRqVVhQM1dHTTQ4VURTL29kaVpjclBWejIyOUJtUTZGZVFobEJuRUNWVzM1c3E1bitVT0RRS2dxWjZ2a3ZQZ2xkU041QTY4eUYxQVpXRW1EUkhVeTRiYVJTQXVYNGNnU1hsTDBIMFc0Q3BlNFhBdmh4UXhjRmRPMEovcHZ4dyswYnlMZitUbUx5YTIxVmY0RktBRDRMa1kxUlQxMUlFdVEwalZUQlNkYUNMZFBPVC8wdlJDMGVrPQ==/attach/object/6fc4d9a8e5016cabaa5dd8495b825f3dc0a953ae?)
 
 5. Uni-app 在app端有几种实现方案？（nvue、）vix那一套，还有一个混合式app？
 
-![img](http://www.kdocs.cn/api/v3/office/copy/c3A5MGNXQUN4UjE5UlllRmJ0a0VQK1RMSmNDNE9GcGNRNW1CNExuUjJBQ0xONEpTU3pwMlhQN2RpTm94RHU3SGFGT2N6bG4wakdpQnkzem8yU2M2QlRqVVhQM1dHTTQ4VURTL29kaVpjclBWejIyOUJtUTZGZVFobEJuRUNWVzM1c3E1bitVT0RRS2dxWjZ2a3ZQZ2xkU041QTY4eUYxQVpXRW1EUkhVeTRiYVJTQXVYNGNnU1hsTDBIMFc0Q3BlNFhBdmh4UXhjRmRPMEovcHZ4dyswYnlMZitUbUx5YTIxVmY0RktBRDRMa1kxUlQxMUlFdVEwalZUQlNkYUNMZFBPVC8wdlJDMGVrPQ==/attach/object/aa1cbe674628dac65c8a2f4ccc434dcea2f12acf?) 
-
- 
-
- 
+![img](http://www.kdocs.cn/api/v3/office/copy/c3A5MGNXQUN4UjE5UlllRmJ0a0VQK1RMSmNDNE9GcGNRNW1CNExuUjJBQ0xONEpTU3pwMlhQN2RpTm94RHU3SGFGT2N6bG4wakdpQnkzem8yU2M2QlRqVVhQM1dHTTQ4VURTL29kaVpjclBWejIyOUJtUTZGZVFobEJuRUNWVzM1c3E1bitVT0RRS2dxWjZ2a3ZQZ2xkU041QTY4eUYxQVpXRW1EUkhVeTRiYVJTQXVYNGNnU1hsTDBIMFc0Q3BlNFhBdmh4UXhjRmRPMEovcHZ4dyswYnlMZitUbUx5YTIxVmY0RktBRDRMa1kxUlQxMUlFdVEwalZUQlNkYUNMZFBPVC8wdlJDMGVrPQ==/attach/object/aa1cbe674628dac65c8a2f4ccc434dcea2f12acf?)
 
 6. 混合式app的基本实现是啥？除了uni-app还有了解过其他混合式app的框架吗？
 
-![img](http://www.kdocs.cn/api/v3/office/copy/c3A5MGNXQUN4UjE5UlllRmJ0a0VQK1RMSmNDNE9GcGNRNW1CNExuUjJBQ0xONEpTU3pwMlhQN2RpTm94RHU3SGFGT2N6bG4wakdpQnkzem8yU2M2QlRqVVhQM1dHTTQ4VURTL29kaVpjclBWejIyOUJtUTZGZVFobEJuRUNWVzM1c3E1bitVT0RRS2dxWjZ2a3ZQZ2xkU041QTY4eUYxQVpXRW1EUkhVeTRiYVJTQXVYNGNnU1hsTDBIMFc0Q3BlNFhBdmh4UXhjRmRPMEovcHZ4dyswYnlMZitUbUx5YTIxVmY0RktBRDRMa1kxUlQxMUlFdVEwalZUQlNkYUNMZFBPVC8wdlJDMGVrPQ==/attach/object/5d60a6c609de3da7b741534d95f439588b929d49?) 
+![img](http://www.kdocs.cn/api/v3/office/copy/c3A5MGNXQUN4UjE5UlllRmJ0a0VQK1RMSmNDNE9GcGNRNW1CNExuUjJBQ0xONEpTU3pwMlhQN2RpTm94RHU3SGFGT2N6bG4wakdpQnkzem8yU2M2QlRqVVhQM1dHTTQ4VURTL29kaVpjclBWejIyOUJtUTZGZVFobEJuRUNWVzM1c3E1bitVT0RRS2dxWjZ2a3ZQZ2xkU041QTY4eUYxQVpXRW1EUkhVeTRiYVJTQXVYNGNnU1hsTDBIMFc0Q3BlNFhBdmh4UXhjRmRPMEovcHZ4dyswYnlMZitUbUx5YTIxVmY0RktBRDRMa1kxUlQxMUlFdVEwalZUQlNkYUNMZFBPVC8wdlJDMGVrPQ==/attach/object/5d60a6c609de3da7b741534d95f439588b929d49?)
 
- 
+![img](http://www.kdocs.cn/api/v3/office/copy/c3A5MGNXQUN4UjE5UlllRmJ0a0VQK1RMSmNDNE9GcGNRNW1CNExuUjJBQ0xONEpTU3pwMlhQN2RpTm94RHU3SGFGT2N6bG4wakdpQnkzem8yU2M2QlRqVVhQM1dHTTQ4VURTL29kaVpjclBWejIyOUJtUTZGZVFobEJuRUNWVzM1c3E1bitVT0RRS2dxWjZ2a3ZQZ2xkU041QTY4eUYxQVpXRW1EUkhVeTRiYVJTQXVYNGNnU1hsTDBIMFc0Q3BlNFhBdmh4UXhjRmRPMEovcHZ4dyswYnlMZitUbUx5YTIxVmY0RktBRDRMa1kxUlQxMUlFdVEwalZUQlNkYUNMZFBPVC8wdlJDMGVrPQ==/attach/object/2b96784eb047995f8e1267cd057e1c18715813a8?)
 
- 
-
- 
-
-![img](http://www.kdocs.cn/api/v3/office/copy/c3A5MGNXQUN4UjE5UlllRmJ0a0VQK1RMSmNDNE9GcGNRNW1CNExuUjJBQ0xONEpTU3pwMlhQN2RpTm94RHU3SGFGT2N6bG4wakdpQnkzem8yU2M2QlRqVVhQM1dHTTQ4VURTL29kaVpjclBWejIyOUJtUTZGZVFobEJuRUNWVzM1c3E1bitVT0RRS2dxWjZ2a3ZQZ2xkU041QTY4eUYxQVpXRW1EUkhVeTRiYVJTQXVYNGNnU1hsTDBIMFc0Q3BlNFhBdmh4UXhjRmRPMEovcHZ4dyswYnlMZitUbUx5YTIxVmY0RktBRDRMa1kxUlQxMUlFdVEwalZUQlNkYUNMZFBPVC8wdlJDMGVrPQ==/attach/object/2b96784eb047995f8e1267cd057e1c18715813a8?) 
-
- 
-
-####  ❗  Uni-app中的rpx 与 px的计算公式是什么？他们的区别是什么？
+#### ❗  Uni-app中的rpx 与 px的计算公式是什么？他们的区别是什么？
 
 （这里一时疏忽说错了，以后就说是两倍关系就行）面试官从这里理解到：我没有自己写过移动端的适配方案。
 
- 
-
 这个可以细看这一篇内容：
 
-<https://juejin.cn/post/7083295652318281736>
+[https://juejin.cn/post/7083295652318281736](https://juejin.cn/post/7083295652318281736)
 
 会有涉及到一些计算相关的问题：
 
@@ -990,8 +921,6 @@ uni.getSysteminfo({
 设计稿 1px / 设计稿基准宽度 = 框架样式 1rpx / 750rpx
 ```
 
-
-
 软件工程三要素：（软件的生命周期）
 
 方法（为建造软件提供技术上的解决办法）
@@ -1000,9 +929,7 @@ uni.getSysteminfo({
 
 过程（获得高质量的软件所需要完成的一些列任务的框架）
 
-了解一下这一篇文章：<https://cloud.tencent.com/developer/article/1905539>
-
- 
+了解一下这一篇文章：[https://cloud.tencent.com/developer/article/1905539](https://cloud.tencent.com/developer/article/1905539)
 
 8.小程序和h5的优劣势？对于这个平台的出现有没有思考？（软件工程术语表达）（
 
@@ -1010,17 +937,13 @@ uni.getSysteminfo({
 
 前提： h5出现已经很久了，为啥微信要推出小程序。
 
-总结一下： 
+总结一下：
 
 小程序的开发成本低，依托微信运行，可以调用各种硬件权限，同时推广也更加方便，可以通过分享的方式进行传播。  缺点：依托于平台运行
 
 H5:运行范围更广，成本低，但是在手机端优势不高。
 
- 
-
-![img](http://www.kdocs.cn/api/v3/office/copy/c3A5MGNXQUN4UjE5UlllRmJ0a0VQK1RMSmNDNE9GcGNRNW1CNExuUjJBQ0xONEpTU3pwMlhQN2RpTm94RHU3SGFGT2N6bG4wakdpQnkzem8yU2M2QlRqVVhQM1dHTTQ4VURTL29kaVpjclBWejIyOUJtUTZGZVFobEJuRUNWVzM1c3E1bitVT0RRS2dxWjZ2a3ZQZ2xkU041QTY4eUYxQVpXRW1EUkhVeTRiYVJTQXVYNGNnU1hsTDBIMFc0Q3BlNFhBdmh4UXhjRmRPMEovcHZ4dyswYnlMZitUbUx5YTIxVmY0RktBRDRMa1kxUlQxMUlFdVEwalZUQlNkYUNMZFBPVC8wdlJDMGVrPQ==/attach/object/cbe709128875f9671c34ef117b5f465d1a88a4bd?) 
-
- 
+![img](http://www.kdocs.cn/api/v3/office/copy/c3A5MGNXQUN4UjE5UlllRmJ0a0VQK1RMSmNDNE9GcGNRNW1CNExuUjJBQ0xONEpTU3pwMlhQN2RpTm94RHU3SGFGT2N6bG4wakdpQnkzem8yU2M2QlRqVVhQM1dHTTQ4VURTL29kaVpjclBWejIyOUJtUTZGZVFobEJuRUNWVzM1c3E1bitVT0RRS2dxWjZ2a3ZQZ2xkU041QTY4eUYxQVpXRW1EUkhVeTRiYVJTQXVYNGNnU1hsTDBIMFc0Q3BlNFhBdmh4UXhjRmRPMEovcHZ4dyswYnlMZitUbUx5YTIxVmY0RktBRDRMa1kxUlQxMUlFdVEwalZUQlNkYUNMZFBPVC8wdlJDMGVrPQ==/attach/object/cbe709128875f9671c34ef117b5f465d1a88a4bd?)
 
 9.关于响应式是怎么理解的？哪些页面适合用响应式？淘宝、支付宝、百度等等；
 
@@ -1029,8 +952,6 @@ H5:运行范围更广，成本低，但是在手机端优势不高。
 （思路：响应式只是以前提出的web端适配方案，他具有局限性，用媒体查询限制很大）
 
 略
-
-
 
 2. Css的box-sizing的属性，他有什么意义？为什么要设置成border-box，他的意义？
 
@@ -1047,56 +968,37 @@ Box-sizing: border-box | content-box
 2.内层函数访问外层变量
 ```
 
-
-
 4. Es6的导出方式？推荐那种？站在架构或者团队的角度分析；
 
 具名导出，默认导出，推荐具名，方便维护
 
 5. 如果导入之后重名怎么处理？
 
-
-
-
-
-####   ❗  **封装一个组件编码之前有哪些思考？** **（重点掌握）**
+#### ❗  **封装一个组件编码之前有哪些思考？** **（重点掌握）**
 
 1. 考虑他的接口设计：接收的数据，事件，以及内部插槽的放置
-
-
 2. 考虑其状态和逻辑： 考虑该组件具体需要实现哪些功能
-
 3. 考虑抽象性：开发者不必暴露所有数据，只需要提供一些必要的方法提供给人使用，
 
 这样可以降低使用难度。
 
 4. 可复用性。封装组件的主要目的之一是提高代码的复用性。因此在设计组件时应该考虑它是否可以被其他组件或应用程序重复使用。可以尝试将一些可变的状态、行为、UI样式和布局进行抽象,使得组件更具通用性。（给外部提供一个写公共样式的地方，也是提高可复用性的一部分）
-
 5. 测试性：这个组件应该开发得方便测试。
 
 （这里可以比对一下开源的ui框架与文档，看看他们是怎么封装组件的，一般组件的prop控制在20以内）
 
-
-
-###  🍥 浙江智加信息科技
+### 🍥 浙江智加信息科技
 
 1. 自我介绍
-
 2. 讲讲前端最主要的是什么
-
 3. 讲一下数组怎么不重复
-
 4. 数组里有重复数字，怎么得到重复值和重复次数，返回什么类型
-
 5. 讲讲一个数组里多个数字，如何当前一个数字结束之后在执行下一个，全部执行才一起返回结束
-
 6. 讲讲es6的继承
 
 讲讲项目中花费时间最长的点
 
-
-
-###  🍈 广州探迹
+### 🍈 广州探迹
 
 1.谈谈react中hook的意义
 
@@ -1114,9 +1016,7 @@ Box-sizing: border-box | content-box
 
 8.讲讲项目难点 你怎么解决的
 
-
-
-###  🍭 匿名公司1
+### 🍭 匿名公司1
 
 #### 线上bug处理
 
@@ -1129,8 +1029,6 @@ v-if和v-show
 数组方法
 
 （number）+ 4(string) （number）- 4(string)
-
-
 
 11.组件封装
 
@@ -1186,27 +1084,15 @@ v-if和v-show
 
 #### 定义对象有几种方法
 
-
-
 #### 一个下拉200条数据怎么处理，纯前端
-
-
 
 #### 表格弹出框修改的时候确认怎么判断是否置灰
 
-
-
 #### vue2 input框输入一个内容底层做了些什么
-
-
 
 #### 动态组件设计思路或者实现
 
-
-
-
-
-###  🌼  匿名公司 2
+### 🌼  匿名公司 2
 
 #### 如何不使用symbol，给某个对象一个唯一的，不重复的标识？
 
@@ -1219,9 +1105,6 @@ v-if和v-show
     // 其他属性
   };
   ```
-
-  ​
-
 - 使用时间戳或其他唯一值
 
   ```
@@ -1231,8 +1114,6 @@ v-if和v-show
     // 其他属性
   };
   ```
-
-  ​
 
 #### 如何把一个二进制数据转化为十进制？
 
@@ -1249,8 +1130,6 @@ function toTenFn(num) {
     return result;
 }
 ```
-
-
 
 #### ts中如何借助类来实现接口？
 
@@ -1284,15 +1163,11 @@ public static defaultProps = new Props()
 
 ```
 
-
-
 #### WebSocket
 
 ```
 
 ```
-
-
 
 #### element组件里有树状图，如何将数组结构转化？
 
@@ -1325,8 +1200,6 @@ const data = [
   },
 ]
 ```
-
-
 
 ```
 export function intoTree(data, pid) {
@@ -1386,8 +1259,6 @@ const treeStructure = buildTree(flatArray);
 console.log(JSON.stringify(treeStructure, null, 2));
 ```
 
- 
-
 #### 前端常见的安全策略？
 
 1. xss攻击
@@ -1421,21 +1292,15 @@ DOM型 XSS
 
 ```
 
--  HttpOnly Cookie
+- HttpOnly Cookie
 
-  这是预防XSS攻击窃取用户cookie最有效的防御手段。Web应用程序在设置cookie时，将其属性设为HttpOnly，浏览器会禁止页面的JS访问带有HttpOnly属性的Cookie。这样就可以避免该网页的cookie被客户端恶意JavaScript窃取，保护用户cookie信息。
+这是预防XSS攻击窃取用户cookie最有效的防御手段。Web应用程序在设置cookie时，将其属性设为HttpOnly，浏览器会禁止页面的JS访问带有HttpOnly属性的Cookie。这样就可以避免该网页的cookie被客户端恶意JavaScript窃取，保护用户cookie信息。
 
 - 输入过滤或转码
 
   服务端将一些关键的字符进行转码，比如 `<script` 等
 
-  ​
-
-  ​
-
 参考：https://github.com/yuanyuanbyte/Blog/issues/133
-
-
 
 #### object.属性 与 object['']
 
@@ -1465,30 +1330,24 @@ const propertyToAccess = prompt("Enter the property you want to access:");
 console.log(user[propertyToAccess]); // 根据用户输入动态访问属性
 ```
 
-
-
 前端线上bug如何处理？
-
-
 
 #### arguments的理解 ?
 
 **arguments** 是一个对应于传递给函数的参数的类数组对象
 
 function func1(a, b, c) {
-  console.log(arguments[0]);
-  // Expected output: 1
+console.log(arguments[0]);
+// Expected output: 1
 
-  console.log(arguments[1]);
-  // Expected output: 2
+console.log(arguments[1]);
+// Expected output: 2
 
-  console.log(arguments[2]);
-  // Expected output: 3
+console.log(arguments[2]);
+// Expected output: 3
 }
 
 func1(1, 2, 3);
-
-
 
 #### 关于Class中的属性get() 与 set() 方法，请写代码举例？
 
@@ -1545,8 +1404,6 @@ console.log(person.age); // 输出: 35
 
 ```
 
-
-
 ### 长沙线上某个公司
 
 #### !!!对vite的理解？使用vite做过哪些优化操作？
@@ -1592,13 +1449,9 @@ css预处理、文件压缩、图像压缩、
 #### vuex的常见属性和用法？
 
 - **State**: 存储应用的状态数据。
-
 - **Getters**: 从 `state` 中派生出一些状态，类似于计算属性。
-
 - **Mutations**: 修改 `state` 的唯一途径，必须是同步函数。
-
 - **Actions**: 处理异步操作，并提交 `mutations`。
-
 - **Modules**: 将 Store 分割成模块，便于管理和维护。
 
   ```
@@ -1624,8 +1477,6 @@ css预处理、文件压缩、图像压缩、
 
   ```
 
-
-
 ```
 
 this.$store.state.num
@@ -1639,13 +1490,9 @@ dva里怎么进行状态管理？具体操作？还有什么类似的react状态
 websocket怎么用?和后端协商吗，后端有做了什么了解吗?
 虚拟滚动;react性能优化。
 
-
-
 ### 广州面试
 
 公司里一般的项目开发流程是怎么样的？
-
-
 
 Echarts中如果一次接收几千条数据应该怎么做？（Echarts遇见大规模数据渲染）
 
@@ -1662,55 +1509,29 @@ https://juejin.cn/post/7398352956711616550
 
 降采样策略 `series-line.sampling`，通过配置`sampling`采样参数可以告诉 ECharts 按照哪一种采样策略，可以有效的优化图表的绘制效率。
 
-
-
 Echarts需要实时的更新数据,应该怎么做？（轮询）如果某次请求的时候，请求出现问题，前端这边怎么确保这个可视化大屏没有问题，或者没有异常呢？
-
-
 
 大文件上传的时候，断点续传值怎么实现的？断点续传，定义的数据有哪些? 接收数据有哪些字段？
 
-
-
 对Promise的原理有没有什么了解？
-
-
 
 ### 广州 lespark线下面试题(14k)
 
 nginx配置、webpack做过哪些优化、
 
-
-
 异常监控如何上报服务器，
-
-
 
 大屏可视化项目多个屏幕拼接展示如何处理
 
-
-
 echarts多图表大数据量的情况优化
-
-
 
 从头搭一个移动端项目如何搭建，组件库构建相关讲讲；
 
-
-
 cookie、localStorage、sessionStorage相关，主域名和子域名cookie能共享么什么什么的？
-
-
 
 代码分包问的很细，要我说参数，splitChunk；
 
-
-
-
-
 ### 老板面/人事面
-
-
 
 #### 自我介绍
 
@@ -1722,17 +1543,11 @@ cookie、localStorage、sessionStorage相关，主域名和子域名cookie能共
 
 #### 问你之前公司的流程？
 
-
-
 #### 你的优点缺点？
 
 优点：就严谨细心，喜欢做计划，有产品意识。
 
-
-
 缺点：什么太严谨有一种强迫症，导致在某个地方一直打磨，容易打乱时间安排。
-
-
 
 #### 个人性格？自我评价？
 
@@ -1740,11 +1555,9 @@ cookie、localStorage、sessionStorage相关，主域名和子域名cookie能共
 
 喜欢钻研问题，善于采纳别人的想法和意见。
 
-缺点： 
+缺点：
 
 太喜欢制定计划，计划没有按照预期执行，就会很失落，难受，感觉规则被打破。
-
-
 
 #### 为什么离职？
 
@@ -1752,13 +1565,7 @@ cookie、localStorage、sessionStorage相关，主域名和子域名cookie能共
 
 广州离家近，而且经济比较发达，也比较宜居，所以选择来广州上班。
 
-
-
 #### 如何看待加班？
-
-
-
-
 
 #### 未来3-5年的职业规划？
 
@@ -1770,25 +1577,14 @@ cookie、localStorage、sessionStorage相关，主域名和子域名cookie能共
 
 讲清楚迭代逻辑。
 
-
-
-作为一个技术人员，我最近一到两年的目标是深入技术，扎根业务，多多理解业务需求，同时多多学习前端的相关业务框架，平时多翻阅文档，做到对基础的技术以及方案有基本了解，能对现有业务做出快速的反应，对一些日常的bug能快速定位理解。 
+作为一个技术人员，我最近一到两年的目标是深入技术，扎根业务，多多理解业务需求，同时多多学习前端的相关业务框架，平时多翻阅文档，做到对基础的技术以及方案有基本了解，能对现有业务做出快速的反应，对一些日常的bug能快速定位理解。
 
 未来3-5年，希望多多深入代码源码，多多阅读一些计算机相关书籍，对计算机这个领域能有更多的了解。同时希望自己也能带点实习生，把计算机的火种传递下去。
 
-
-
-
-
-
-
 #### 什么时候可以到岗？
 
-
-
-
-
 #### 
+
 ### 长沙数字马力一面(13k)
 
 1.讲讲个人情况？离职原因？为什么考虑长沙？
@@ -1798,19 +1594,11 @@ cookie、localStorage、sessionStorage相关，主域名和子域名cookie能共
 5. Node.js？koa和express有什么差别？洋葱模型？什么是中间件？知道底层原理么？
 
 6. Keep-alive有哪些配置？缓存的是虚拟dom么？LRU？还有哪些方面底层涉及到这个算法？
-
 7. 说说你知道的和在项目中使用的性能优化内容？import动态导入实现分包的原理是什么？
-
 8. 你刚刚说的图片懒加载讲讲？有哪几种？一般用哪种？
-
 9. 闭包
-
 10. TS有了解么？讲讲
-
 11. 反问？技术展示react + ts
-
-    ​
-
 
 ### 长沙数字马力二面(13k)
 
@@ -1818,7 +1606,7 @@ cookie、localStorage、sessionStorage相关，主域名和子域名cookie能共
 2.vuex状态管理使用场景，讲讲具体哪些功能用了这些？
 3.你们登录过期是如何判断的？cookie哪些字段？
 4.讲讲项目中那个视频播放组件，你有参与封装么
-5.spa和mpa的区别	
+5.spa和mpa的区别
 6.webpack打包文件的整个流程讲讲？有哪些参数？
 7.使用uniapp开发遇到过哪些问题，举写例子？ocr模块拉起摄像头是咋做的
 8.项目中有参与封装哪些组件？讲讲那个树组件的封装？回填慢有涉及到什么优化么？
@@ -1826,25 +1614,9 @@ cookie、localStorage、sessionStorage相关，主域名和子域名cookie能共
 10.说说你知道的node相关内容？有使用哪些中间件？
 11.CICD流程？有使用过哪些服务器命令？
 
-
-
-
-
-
-
-
-
-
-
-
-
 ### 广州的面试摘要
 
-
-
 #### 了解页面渲染过程
-
-
 
 #### http请求原理
 
@@ -1864,41 +1636,41 @@ cookie、localStorage、sessionStorage相关，主域名和子域名cookie能共
 #### 前端网页性能优化
 
 1. 减少HTTP请求
-  合并文件：将多个CSS或JavaScript文件合并成一个，以减少HTTP请求数量。
-  使用图标字体或SVG Sprites：将多个图标合并为一个字体文件或SVG sprite，减少图片请求。
+   合并文件：将多个CSS或JavaScript文件合并成一个，以减少HTTP请求数量。
+   使用图标字体或SVG Sprites：将多个图标合并为一个字体文件或SVG sprite，减少图片请求。
 2. 压缩资源
-  启用Gzip/Brotli：在服务器端启用压缩算法，如Gzip或更高效的Brotli，可以显著减小传输文件的大小。
-  压缩图片：使用工具（如ImageOptim, TinyPNG）来压缩图片而不明显降低质量。
-  压缩CSS/JS：使用构建工具（如Webpack, Gulp）中的插件对CSS和JavaScript进行压缩，去除不必要的空格、注释等。
+   启用Gzip/Brotli：在服务器端启用压缩算法，如Gzip或更高效的Brotli，可以显著减小传输文件的大小。
+   压缩图片：使用工具（如ImageOptim, TinyPNG）来压缩图片而不明显降低质量。
+   压缩CSS/JS：使用构建工具（如Webpack, Gulp）中的插件对CSS和JavaScript进行压缩，去除不必要的空格、注释等。
 3. 优化缓存策略
-  设置适当的Cache-Control头：通过HTTP头部告诉浏览器哪些资源可以缓存以及缓存多久。
-  利用ETag或Last-Modified：让浏览器能够检查本地缓存是否是最新的，避免不必要的下载。
-  版本化静态资源：通过给静态资源添加版本号或哈希值，使更新后的资源能被正确加载。
+   设置适当的Cache-Control头：通过HTTP头部告诉浏览器哪些资源可以缓存以及缓存多久。
+   利用ETag或Last-Modified：让浏览器能够检查本地缓存是否是最新的，避免不必要的下载。
+   版本化静态资源：通过给静态资源添加版本号或哈希值，使更新后的资源能被正确加载。
 4. 延迟加载和懒加载
-  懒加载图片和视频：只当元素进入视口时才加载图片或视频，减少初始页面加载时间。
-  异步加载脚本：对于不影响首屏渲染的脚本，使用async或defer属性使其异步加载，不阻塞DOM解析。
+   懒加载图片和视频：只当元素进入视口时才加载图片或视频，减少初始页面加载时间。
+   异步加载脚本：对于不影响首屏渲染的脚本，使用async或defer属性使其异步加载，不阻塞DOM解析。
 5. 代码分割和按需加载
-  动态导入：使用JavaScript的动态导入语法（import()）来实现代码分割，根据需要加载模块。
-  Tree Shaking：移除未使用的代码，确保打包后只有真正用到的代码被包含进来。
+   动态导入：使用JavaScript的动态导入语法（import()）来实现代码分割，根据需要加载模块。
+   Tree Shaking：移除未使用的代码，确保打包后只有真正用到的代码被包含进来。
 6. 优化JavaScript执行
-  减少重排和重绘：尽量批量修改DOM，减少样式计算次数；使用requestAnimationFrame来进行动画处理。
-  事件委托：将事件监听器绑定到父级节点上，利用事件冒泡机制处理子元素的事件，减少内存占用。
-  Web Workers：对于耗时的任务，考虑使用Web Workers将其放到后台线程中执行，保持UI流畅。
+   减少重排和重绘：尽量批量修改DOM，减少样式计算次数；使用requestAnimationFrame来进行动画处理。
+   事件委托：将事件监听器绑定到父级节点上，利用事件冒泡机制处理子元素的事件，减少内存占用。
+   Web Workers：对于耗时的任务，考虑使用Web Workers将其放到后台线程中执行，保持UI流畅。
 7. 使用CDN（内容分发网络）
-  托管静态资源：将图片、CSS、JS等静态资源托管到CDN上，利用其全球分布的优势加速资源获取。
-  选择合适的CDN提供商：根据目标用户群体的位置选择覆盖范围广且稳定的CDN服务提供商。
+   托管静态资源：将图片、CSS、JS等静态资源托管到CDN上，利用其全球分布的优势加速资源获取。
+   选择合适的CDN提供商：根据目标用户群体的位置选择覆盖范围广且稳定的CDN服务提供商。
 8. 预取和DNS预解析
-  预取资源：提前加载可能会用到的资源（如下一个页面的CSS/JS），提高后续页面加载速度。
-  DNS预解析：提前解析第三方资源所在域名的DNS，缩短首次连接时间。
+   预取资源：提前加载可能会用到的资源（如下一个页面的CSS/JS），提高后续页面加载速度。
+   DNS预解析：提前解析第三方资源所在域名的DNS，缩短首次连接时间。
 9. 减少重定向
-  避免不必要的重定向：每个重定向都会增加额外的HTTP请求，导致延迟。尽量直接链接到最终目的地。
+   避免不必要的重定向：每个重定向都会增加额外的HTTP请求，导致延迟。尽量直接链接到最终目的地。
 10. 优化移动体验
-  采用响应式设计：确保网站在各种设备上有良好的显示效果，同时考虑到移动设备的特点调整布局和交互方式。
-  触控优化：为触摸屏设备提供更大的点击区域，并考虑快速点击和手势操作。
+    采用响应式设计：确保网站在各种设备上有良好的显示效果，同时考虑到移动设备的特点调整布局和交互方式。
+    触控优化：为触摸屏设备提供更大的点击区域，并考虑快速点击和手势操作。
 11. 监控和诊断工具
-   Google Lighthouse：用于审计网页性能、可访问性等方面的开源工具，给出详细的改进建议。
-   PageSpeed Insights：由Google提供的在线服务，分析网页并提供建议以加快加载速度。
-   Web Vitals：关注关键用户体验指标，如LCP（最大内容绘制）、FID（首次输入延迟）和CLS（累积布局偏移）。
+    Google Lighthouse：用于审计网页性能、可访问性等方面的开源工具，给出详细的改进建议。
+    PageSpeed Insights：由Google提供的在线服务，分析网页并提供建议以加快加载速度。
+    Web Vitals：关注关键用户体验指标，如LCP（最大内容绘制）、FID（首次输入延迟）和CLS（累积布局偏移）。
 
 #### 浏览器兼容
 
@@ -1909,45 +1681,40 @@ CSS 兼容性
 解决方案：确保代码遵循最新的 CSS 规范，并为旧版浏览器提供回退方案；对于复杂的布局，可以考虑使用框架如 Bootstrap 或者 CSS 框架来简化开发。
 
 2. JavaScript 兼容性
-  ES6+ 特性支持：较新的 JavaScript 语法和特性（如箭头函数、解构赋值、let 和 const 关键字、模板字符串等）在老旧浏览器中可能不受支持。
-  解决方案：使用 Babel 将现代 JavaScript 编译成向后兼容的 ES5 代码。
-  DOM API 支持：不同浏览器对 DOM API 的实现有差异，某些方法或属性可能在某些浏览器中不存在。
-  解决方案：检查文档或使用 Polyfill 来补充缺失的功能，比如 core-js 可以用来填补 JavaScript 标准库中的空缺。
+   ES6+ 特性支持：较新的 JavaScript 语法和特性（如箭头函数、解构赋值、let 和 const 关键字、模板字符串等）在老旧浏览器中可能不受支持。
+   解决方案：使用 Babel 将现代 JavaScript 编译成向后兼容的 ES5 代码。
+   DOM API 支持：不同浏览器对 DOM API 的实现有差异，某些方法或属性可能在某些浏览器中不存在。
+   解决方案：检查文档或使用 Polyfill 来补充缺失的功能，比如 core-js 可以用来填补 JavaScript 标准库中的空缺。
 3. HTML5 元素与 API
-  HTML5 新标签：新引入的语义化标签（如 <article>、<section> 等）在 IE9 之前的版本中不被识别。
-  解决方案：使用 HTML5 Shiv 或 Modernizr 等工具来增强旧版浏览器对 HTML5 标签的支持。
-  多媒体元素：<audio> 和 <video> 标签及其属性在不同浏览器中有不同的编码和格式支持。
-  解决方案：提供多种编码格式的文件，以确保至少一种格式能在目标浏览器中播放。
+   HTML5 新标签：新引入的语义化标签（如 <article>、<section> 等）在 IE9 之前的版本中不被识别。
+   解决方案：使用 HTML5 Shiv 或 Modernizr 等工具来增强旧版浏览器对 HTML5 标签的支持。
+   多媒体元素：<audio> 和 <video> 标签及其属性在不同浏览器中有不同的编码和格式支持。
+   解决方案：提供多种编码格式的文件，以确保至少一种格式能在目标浏览器中播放。
 4. 事件处理
-  事件绑定方式：不同浏览器使用不同的方法来绑定事件监听器（如 addEventListener 对应的 IE 版本是 attachEvent）。
-  解决方案：使用事件委托或者库（如 jQuery）来抽象这些差异。
-  触摸事件：移动设备上的触摸事件（如 touchstart、touchmove 等）在桌面浏览器上可能不存在。
-  解决方案：检测用户代理或使用像 Hammer.js 这样的库来统一处理触控和鼠标事件。
+   事件绑定方式：不同浏览器使用不同的方法来绑定事件监听器（如 addEventListener 对应的 IE 版本是 attachEvent）。
+   解决方案：使用事件委托或者库（如 jQuery）来抽象这些差异。
+   触摸事件：移动设备上的触摸事件（如 touchstart、touchmove 等）在桌面浏览器上可能不存在。
+   解决方案：检测用户代理或使用像 Hammer.js 这样的库来统一处理触控和鼠标事件。
 5. 表单验证
-  内置验证：HTML5 表单验证（如 required、pattern 等属性）在不同浏览器中的行为可能会有所不同。
-  解决方案：编写自定义验证逻辑，或者依赖第三方库来保证一致性。
+   内置验证：HTML5 表单验证（如 required、pattern 等属性）在不同浏览器中的行为可能会有所不同。
+   解决方案：编写自定义验证逻辑，或者依赖第三方库来保证一致性。
 6. 媒体查询和响应式设计
-  视口设置：某些移动浏览器默认缩放页面，这会影响响应式设计的效果。
-  解决方案：通过设置正确的视口元标签（<meta name="viewport" content="width=device-width, initial-scale=1">）来控制页面缩放。
+   视口设置：某些移动浏览器默认缩放页面，这会影响响应式设计的效果。
+   解决方案：通过设置正确的视口元标签（<meta name="viewport" content="width=device-width, initial-scale=1">）来控制页面缩放。
 7. 字体和图标
-  Web 字体加载：不同浏览器对 Web 字体的加载策略可能不同，可能导致闪屏或其他渲染问题。
-  解决方案：优化字体文件大小，延迟加载非关键字体，或使用字体加载器如 Font Face Observer。
+   Web 字体加载：不同浏览器对 Web 字体的加载策略可能不同，可能导致闪屏或其他渲染问题。
+   解决方案：优化字体文件大小，延迟加载非关键字体，或使用字体加载器如 Font Face Observer。
 8. 插件和 ActiveX
-  Flash 和 Silverlight 插件：随着越来越多的浏览器停止支持 Flash 插件，相关的内容可能无法正常显示。
-  解决方案：将内容迁移到 HTML5 或其他现代技术。
-  解决浏览器兼容性的通用建议
-  使用 Polyfills 和 Shims：为不支持的新特性和 API 提供替代实现。
-  选择合适的库和框架：许多流行的库和框架已经解决了大量的兼容性问题，可以帮助你减少这些问题。
-  测试：尽可能多地在实际的目标浏览器和设备上进行测试，包括使用工具如 BrowserStack 或 Sauce Labs 来模拟各种环境。
-  渐进增强：设计时采用渐进增强的原则，确保基础功能在所有浏览器中都能正常工作，同时为现代浏览器提供更丰富的体验。
-  关注最新规范和技术：随着浏览器不断更新其对标准的支持，保持对最新 Web 技术的关注有助于提前解决问题。
-
-
-
+   Flash 和 Silverlight 插件：随着越来越多的浏览器停止支持 Flash 插件，相关的内容可能无法正常显示。
+   解决方案：将内容迁移到 HTML5 或其他现代技术。
+   解决浏览器兼容性的通用建议
+   使用 Polyfills 和 Shims：为不支持的新特性和 API 提供替代实现。
+   选择合适的库和框架：许多流行的库和框架已经解决了大量的兼容性问题，可以帮助你减少这些问题。
+   测试：尽可能多地在实际的目标浏览器和设备上进行测试，包括使用工具如 BrowserStack 或 Sauce Labs 来模拟各种环境。
+   渐进增强：设计时采用渐进增强的原则，确保基础功能在所有浏览器中都能正常工作，同时为现代浏览器提供更丰富的体验。
+   关注最新规范和技术：随着浏览器不断更新其对标准的支持，保持对最新 Web 技术的关注有助于提前解决问题。
 
 ### 长沙电商类、独立开发公司面试(10k)
-
-
 
 #### 搭一个公司官网
 
@@ -1956,8 +1723,6 @@ CSS 兼容性
 基于SEO考虑，会采用 next（react） 或者nuxt（vue）来进行网站搭建，或者使用一些成熟的开源库，类似wordpress之类的，wordpress是基于PHP的，他对SEO的适配是很不错的。
 
 开发注意:  响应式设计，网站兼容性问题，网站响应速度，SEO优化，网站部分页面反扒，商城类要特别考虑安全性问题。
-
-
 
 响应式设计：确保网站能够在不同设备上（如台式机、平板、手机）正确显示和操作。
 浏览器兼容性：不同浏览器对HTML、CSS和JavaScript的支持可能存在差异，需要测试网站在主流浏览器（如Chrome、Firefox、Safari、Edge）中的表现。可以使用Polyfill和Transpiler等技术来解决兼容性问题1。
@@ -1969,8 +1734,6 @@ CSS 兼容性
 跨域问题：处理跨域请求，使用JSONP、CORS或代理服务器等方式来实现跨域数据访问1。
 SEO（搜索引擎优化）：虽然前端开发人员不直接参与SEO，但了解基本的SEO原则（如使用语义化的HTML标签、优化页面标题和元描述等）仍然重要。
 
-
-
 #### 官网，商场，和后台区别？
 
 （从用户角度有什么相同之处，不同之处）
@@ -1979,10 +1742,7 @@ SEO（搜索引擎优化）：虽然前端开发人员不直接参与SEO，但�
 
 后台项目是toB 项目，面向企业用户；用户体验相对来说要差一点，一般功能性更强。
 
-
-
 商城，更侧重用户体验，功能也比较多，安全性问题；
-
 
 做电商类页面
 如果是是用vue的话，那可能必须要用到 next，服务端渲染，不然SEO不够友好。
@@ -1991,7 +1751,7 @@ SEO（搜索引擎优化）：虽然前端开发人员不直接参与SEO，但�
 wordpress+woocommerce，
 WordPress.org下载压缩包，服务器用PHP/MySQL，不是WordPress.com。
 
- shopify 或者 woocommerce 好。
+shopify 或者 woocommerce 好。
 
 #### 使用的vue 3点几的版本?
 
@@ -2054,7 +1814,7 @@ const [modelValue, modelModifiers] = defineModel({
 
 **3.5版本**
 
-  `**Vue3.5**` 支持 Props 响应式解构；https://blog.vuejs.org/posts/vue-3-5
+`**Vue3.5**` 支持 Props 响应式解构；https://blog.vuejs.org/posts/vue-3-5
 
 ```
 import { watchEffect } from 'vue
@@ -2072,8 +1832,6 @@ userId 用于生成在服务端和客户端渲染间保持稳定的唯一 ID，�
 
 defineExpose()子组件内暴露，父组件ref获取
 
-
-
 #### 如何定义一个命令式的弹框？
 
 1. 创建弹窗组件，用transition做动画处理，transport传送到body，同时暴露两个方法，showModel() hideModel()
@@ -2081,31 +1839,19 @@ defineExpose()子组件内暴露，父组件ref获取
 3. 把弹窗注册成全局插件，app.config.globalProperties.$showModal = showModal;
 4. 页面$()调用
 
-
-
 ### 长沙pc
 
 vue2 与vue3 区别
 
-
-
 vue2原理
 
-
-
-
-
 双向绑定原理
-
-
-
-
 
 #### 数据可视化大屏，鼠标滚轮放大，缩小，页面如何适配?
 
 https://blog.csdn.net/Sophie_U/article/details/109582687
 
-normalize-wheel 与 resize-observer-polyfill 
+normalize-wheel 与 resize-observer-polyfill
 
 使用相对单位 +  媒体查询 + 为关键元素设置组大最小宽高 + 监听鼠标滚轮缩放大小，限制放大缩小
 
@@ -2125,7 +1871,7 @@ normalize-wheel 与 resize-observer-polyfill
    - 在 JavaScript 中监听缩放事件，动态调整内容的位置和大小。
    - 例如，在缩放到极小或极大时，隐藏不必要的元素或显示提示信息。
 
- getBoundingClientRect() 元素的大小及其相对于[视口](https://developer.mozilla.org/zh-CN/docs/Glossary/Viewport)的位置。
+getBoundingClientRect() 元素的大小及其相对于[视口](https://developer.mozilla.org/zh-CN/docs/Glossary/Viewport)的位置。
 
 缩放逻辑:
 使用 CSS 的 transform 属性来实现缩放。
@@ -2140,8 +1886,6 @@ normalize-wheel 与 resize-observer-polyfill
 边界条件:
 设置最小和最大缩放级别，防止过度缩放。
 确保内容不会超出视口范围。
-
-
 
 ### 腾讯前端面试（两年）：
 
@@ -2160,8 +1904,6 @@ console.log(proxy.a); // 输出 10
 
 ```
 
-
-
 柯里化、大数相加
 
 // 8. 简述在 esbuild/rollup/babel/webpack/vite 等打包工具中，以下代码，会产生怎样的 bundle
@@ -2173,10 +1915,8 @@ export { foo } from './lib'
 // lib.ts
 export const foo = 1;
 export enum bar { a, b };
-​```;
+```;
 ```
-
-
 
 柯里化、大数相加
 
@@ -2263,32 +2003,364 @@ pnpm软硬链接在么么阶段干了什么事啥的
 
 这种的不知道也可以蒙，比如tree-shaking首先要判断代码是否是副作用，所以，在模块中的无法穿透模块上下文的东西自然就不可能是带副作用的.
 
-
-
 大数相加和环形链表2
-
-
-
-
 
 ### 项目抽离
 
 vue项目中引入video组件，如何编写  https://www.cnblogs.com/shenjp/p/12066405.html
 
-
-
-
-
-
-
-
-
 ## 从头设计组件库怎么考虑？
-
-
-
 
 ## 笔试摘要
 
 1. 手写简化promise
 2. 双向链表
+
+## 懂车帝前端一面（2年）
+
+自我介绍，项目介绍
+2. 你觉得Vue2和Vue3 的核心差异在哪里，哪些问题是 Vue3解决掉的
+
+### vue3的proxy这个新的一个特性，那如果说深层的这种嵌套对象有没有遇到过监听失效的这种情况，怎么处理呢？
+
+“监听失效”的情况，常见原因有：
+
+1. 新加的属性不是响应式的。比如你直接给对象加新属性，Vue3 可以监听到，但如果你用 Object.assign 或者直接替换整个对象，可能会丢失响应式。
+2. 直接操作原始对象。如果你绕过了 reactive 或 ref，直接操作原始对象，Vue 是感知不到的。
+3. 数组的某些操作，比如直接修改数组的 length 或用索引赋值，可能不会触发视图更新。
+
+正确做法：
+
+1. 始终用 reactive 或 ref 包裹你的数据， obj.a.b.c，页面都会自动更新。
+2. ```
+   import { reactive } from 'vue'
+
+   const obj = reactive({
+     a: {
+       b: {
+         c: 1
+       }
+     }
+   })
+   ```
+3. 数组用push 、splice操作
+4. 整个替换
+
+   ```
+   import { reactive } from 'vue'
+
+   const state = reactive({
+     user: {
+       name: '小明',
+       age: 18
+     }
+   })
+
+   // 替换时，先用 reactive 包裹新对象
+   state.user = reactive({
+     name: '小红',
+     age: 20
+   })
+   ```
+
+看你做过报告解读，你们用这个ocr 怎么去处理这种识别的误差，或者说一些值的误差怎么办？比如说我给你的是一份体检报告，这个体检报告的格式有可能更不像我们医院的检验单，那么标准就是检验项目上面是表格检验的细项，有可能这个体检报告。它的格式。就每一份体验报的格式都不太一样，怎么办
+
+### 虚拟 dom在哪些场景下，反而会有一些性能的瓶颈
+
+#### 场景一：**大数据量、频繁更新**
+
+- 比如页面上有**上万条数据**，每一条都要渲染成DOM节点（比如表格、列表）。
+- 如果你用`v-for`直接渲染1万条数据，每次有一点点变化，虚拟DOM都要**重新生成1万个VNode对象**，然后再和旧的VNode做对比（diff），最后再更新真实DOM。
+- 这种情况下，**虚拟DOM的diff过程本身就很耗时**，甚至比直接操作真实DOM还慢。
+
+**举例：**
+
+```vue
+<ul>
+  <li v-for="item in bigList" :key="item.id">{{ item.name }}</li>
+</ul>
+```
+
+如果`bigList`有1万条，每次都全量渲染，页面会非常卡。
+
+#### 场景二：**动画、游戏、频繁的像素级操作**
+
+- 比如你要做一个画板、游戏、或者频繁移动页面上的元素（比如拖拽、粒子动画）。
+- 这些场景下，**每一帧都要更新很多DOM节点**，虚拟DOM的diff和patch过程会成为瓶颈。
+- 这时候，**直接用Canvas/WebGL或者直接操作DOM反而更快**。
+
+#### 场景三：**只需要局部更新，但虚拟DOM全量diff**
+
+- 比如你只想更新一个很小的区域，但因为父组件的状态变化，导致整个大组件都重新diff。
+- 这时候，**虚拟DOM会做很多无用的对比和计算**，浪费性能。
+
+#### 场景四：**频繁的定时器/高频事件**
+
+- 比如你用`setInterval`、`requestAnimationFrame`每16ms（60帧）就更新一次页面。
+- 虚拟DOM每次都要重新生成VNode和diff，**高频率下会拖慢页面**。
+
+## 3. 解决办法
+
+- **大数据渲染**：用“虚拟列表”技术（只渲染可见区域，比如element-plus的el-table虚拟滚动）。
+- **动画/游戏**：用Canvas、WebGL，或者直接操作DOM。
+- **局部更新**：用`v-show`、`v-if`、`key`优化，或者用`shouldComponentUpdate`（React）/`watchEffect`（Vue3）等手段减少无用diff。
+
+你刚提到的大的数据量，我们虚拟列表你能讲一下吗？底层是什么原理实现的
+6.它有等高或者不等高的情况，如果不等高的情况要怎么处理
+
+### 7. Pinia 对比vuexAPI 的设计的差异上解决了哪些问题？有哪些优势？
+
+### 8. 有这么一个场景：当我在这个公众号或者小程序，就你现在做的这个，就是我如果说去查看我的一些影像报告，然后这个影像报告呢有点大，大概就是。几十兆这个样子有什么优化的方式，从网络请求到渲染整个全链路的一个优化方案讲一下
+
+如果要在小程序中实现一个可拖拽的医疗病历拼图功能，需要支持分页加载 + 多指缩放 + 保存状态，怎么来设计
+10.如果医院要你接入一个 PACS 系统，展示 DICOM 格式影像报告，怎么来设计
+
+有个业务要做一个骨密度 AI 预测组件，后端提供的是 TensorFlow.js 模型文件，前端要做预测展示，怎么做
+
+### 有没有用过 defineExpose、defineOptions、defineModel 这些组合式宏？在实际开发中怎么使用更合理？
+
+#### 1. 这些宏是什么？
+
+- **defineExpose**：让父组件可以通过 `ref` 访问子组件里暴露出来的属性或方法。
+- **defineOptions**：用来设置组件的选项（比如 name、inheritAttrs 等），让 `<script setup>` 写法也能像普通组件一样有这些配置。
+- **defineModel**：让子组件和父组件之间实现**双向绑定**（v-model），而且可以自定义绑定的字段和类型。
+
+---
+
+#### 2. 怎么用？（举例说明）
+
+##### 2.1 defineExpose
+
+**场景**：父组件想直接调用子组件的方法。
+
+**子组件：**
+
+```vue
+<script setup>
+function sayHello() {
+  alert('Hello from child!')
+}
+defineExpose({ sayHello })
+</script>
+```
+
+**父组件：**
+
+```vue
+<template>
+  <Child ref="childRef" />
+  <button @click="callChild">点我调用子组件方法</button>
+</template>
+<script setup>
+import { ref } from 'vue'
+import Child from './Child.vue'
+
+const childRef = ref()
+function callChild() {
+  childRef.value.sayHello()
+}
+</script>
+```
+
+---
+
+##### 2.2 defineOptions
+
+**场景**：你用 `<script setup>` 写法，但还想给组件设置 `name`、`inheritAttrs` 等。
+
+```vue
+<script setup>
+defineOptions({
+  name: 'MyComponent',
+  inheritAttrs: false
+})
+</script>
+```
+
+这样你的组件就有了名字，调试和递归组件时很有用。
+
+---
+
+##### 2.3 defineModel
+
+**场景**：子组件要支持 v-model，或者支持多个 v-model 字段。
+
+**子组件：**
+
+```vue
+<script setup>
+const count = defineModel('count', { type: Number, default: 0 })
+// 现在父组件可以用 v-model:count="xxx" 双向绑定
+</script>
+```
+
+**父组件：**
+
+```vue
+<Child v-model:count="myCount" />
+```
+
+**支持修饰符：**
+
+```vue
+const [modelValue, modelModifiers] = defineModel({
+  set(value) {
+    if (modelModifiers.trim) {
+      return value.trim()
+    }
+    return value
+  }
+})
+```
+
+---
+
+#### 3. 实际开发中怎么用更合理？
+
+- **defineExpose**：只暴露必要的属性/方法，**不要什么都暴露**，这样父组件不会乱用子组件的内部细节，保证封装性。
+- **defineOptions**：建议**每个组件都写 name**，方便调试和递归调用。`inheritAttrs: false` 只有在你不想让父组件的属性自动传递到根节点时才用。
+- **defineModel**：如果你的组件需要支持 v-model，**优先用 defineModel**，比 props + emits 更简洁。支持多个 v-model 字段时也很方便。
+
+---
+
+#### 4. 总结口诀
+
+> defineExpose 让父能调子，defineOptions 让 setup 组件有名字，defineModel 让双向绑定更优雅！
+
+
+### 13. 比如小程序或者 H5 在低版本 Android 上崩了，你怎么定位问题怎么解决
+
+
+### Pinia 对比vuexAPI 的设计的差异上解决了哪些问题？有哪些优势？Pinia 怎么解决跨 tab 数据同步的问题?
+
+
+你的问题非常好！我会用最简单、最容易理解的方式，帮你明白 Pinia 和 Vuex 的区别、Pinia 的优势，以及 Pinia 如何解决跨 tab 数据同步的问题。
+
+---
+
+#### 1. Pinia 对比 Vuex API 的设计差异和优势
+
+##### 1.1 设计差异
+
+
+| 对比点          | Vuex（老）                                                | Pinia（新）                      |
+| --------------- | --------------------------------------------------------- | -------------------------------- |
+| 定义方式        | 传统对象式（modules、state、mutations、actions、getters） | 组合式API（defineStore），更灵活 |
+| TypeScript 支持 | 一般                                                      | 非常好，类型推断一流             |
+| 使用方式        | this.$store.state.xxx                                     | 直接 import/useStore()           |
+| 状态修改        | 必须用 mutation                                           | 可以直接改 state，也支持 action  |
+| 模块注册        | 动态注册麻烦                                              | 动态注册简单                     |
+| Devtools 支持   | 有                                                        | 更好，支持时间旅行、快照等       |
+| 持久化          | 需要插件                                                  | 内置持久化选项（persist）        |
+| 代码体积        | 大                                                        | 小                               |
+
+#### 1.2 主要优势
+
+1. **更简单易用**：Pinia 只用 `defineStore` 就能搞定，API 更直观。
+2. **类型推断好**：用 TypeScript 时，Pinia 自动推断类型，不用手动写类型。
+3. **组合式 API**：和 Vue3 的 Composition API 完美结合，代码更灵活。
+4. **直接修改 state**：不需要 mutation，直接改 state 就能响应式更新。
+5. **支持多实例**：同一个 store 可以创建多个实例，适合复杂场景。
+6. **更好的插件生态**：比如持久化、跨标签页同步等，直接用插件搞定。
+
+---
+
+#### 2. Pinia 怎么解决跨 tab 数据同步的问题？
+
+##### 2.1 跨 tab 同步的场景
+
+比如你在一个标签页登录了，另一个标签页也要自动同步登录状态。
+
+##### 2.2 Pinia 的解决方案
+
+Pinia 本身没有内置跨 tab 同步，但**可以用持久化插件 + 浏览器的 storage 事件**轻松实现。
+
+##### 方法一：用 pinia-plugin-persistedstate 插件
+
+- 这个插件可以把 Pinia 的 state 存到 localStorage。
+- 浏览器的不同 tab 只要监听 localStorage 的变化（storage 事件），就能同步数据。
+
+**简单代码示例：**
+
+```js
+// 1. 安装插件
+// npm install pinia-plugin-persistedstate
+
+// 2. 在 main.js 里引入
+import { createPinia } from 'pinia'
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
+
+const pinia = createPinia()
+pinia.use(piniaPluginPersistedstate)
+
+// 3. 在 store 里开启持久化
+export const useUserStore = defineStore('user', {
+  state: () => ({
+    token: null
+  }),
+  persist: true // 一行搞定
+})
+```
+
+**这样，token 会自动同步到 localStorage，所有 tab 都能拿到最新的 token。**
+
+##### 方法二：手动监听 storage 事件
+
+如果你有特殊需求，可以手动监听：
+
+```js
+window.addEventListener('storage', (event) => {
+  if (event.key === 'pinia-user') {
+    // 读取最新的 user 数据，更新 store
+  }
+})
+```
+
+---
+
+#### 3. 总结口诀
+
+> Pinia 更简单，类型好，直接改，组合式，插件多，跨 tab 用持久化+storage 事件就能同步！
+
+##15. 如果我页面上有 1 万条数据，用 v-for 卡顿了你会怎么优化？
+16.你觉得你你对团队沟通或者说就是团队建设，团队氛围以及需求沟通，以及你对你自己的评价是什么样的？
+17.如果说产品就是跟团队的 leader 的意见，除了这个就是向左，你会更支持哪一方，或者说你会更站在哪一方去考虑这个问题。
+18.遇到不合理的 deadline 或资源不足你会怎么协调？
+19.反问
+
+## 懂车帝前端二面（2年）
+
+懂车帝前端社招二面（贼难）
+1.自我介绍项目介绍
+2.你做的那个MES工位屏说说里面性能优化怎么做的？为啥需要虚拟列表
+3.一万条数据真的会卡你们怎么评估的光虚拟列表就够了吗
+4.你们是不是一次性全拉数据有没有考虑分页
+5.Electron 你们怎么接热敏打印和电子秤的？直接用哪个包有遇到串口问题没
+6.你们这个系统是内部用还是对外用大概多少用户并发量多少
+7.组件库你们自己封的xx-touch和xx-printer你是怎么封装的？用的是什么模式
+8.你说你主导了Ts落地具体做了哪些？团队之前为什么不用
+9.你提到 xx-api 是自己写的生成器，核心逻辑是怎么样的
+
+
+10. 你刚才说虚拟列表那 React 里实现一个虚拟滚动的思路是什么？
+11. 你能说说 Reactdiff 算法大概原理吗
+12. props传复杂对象给子组件，子组件会不会更新？为啥？
+13. 那你怎么避免这种不必要更新？React.memo 真的可以搞定么
+14. 如果我 props 改了，但你不想让它更新，怎么处理
+15. 你说你懂 Fiber，说白了 Fiber 的本质是啥？怎么实现中断渲染的？
+16. Fiber 里面有哪个字段你觉得特别关键
+17. React 用的调度机制是不是跟浏览器 idle 有点像？你了解它底层么到底是用了什么
+18. 闭包知道么，别说概念，举个你项目中真的用过的场景
+
+19. let 和 const区别优缺点，const 真的是不能改的吗？
+20. JS 怎么判断一个空对象
+    21.你说用for...in有什么坑呢在里面
+21. TS 你平时最常用哪些特性？介绍一下区别
+22. 你们写业务组件，怎么定义 props 类型的？用过什么样的工具类型
+23. 有没有写过自定义 hook，useCallback 和 useMemo区别
+24. Tree-shaking 原理，为什么只有 ESModule 支持
+25. 你说你做性能优化页面卡顿你怎么看出来的？用哪些工具
+26. 你用过DNS吗你觉得DNS是浏览器干的还是操作系统干的
+27. requestAnimationFrame和requestIdleCallback有啥区别？分别什么场景下用
+28. HTTP协议你知道哪些版本HTTP2 和 HTTP1 最大的区别是啥
+29. 你知道BFC么，清除浮动是不是只能用overflow: hidden

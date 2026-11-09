@@ -3,7 +3,7 @@
 props是响应式的，
 
 1. 他是不支持一些map之类的处理方法的响应的；
-  参看：https://worktile.com/kb/ask/782455.html
+   参看：https://worktile.com/kb/ask/782455.html
 
 ### 转化成非响应式？toRaw 与 markRaw?
 
@@ -15,19 +15,14 @@ markRaw 使用场景：
 
 - 有些值不应被设置为响应式的，例如复杂的第三方库。比如一个响应式对象中，要放入axios，或者别的随机数字的第三方库
 - 如果不让他变成非响应式的，那么Vue就会去找到每一个层级，让其都能响应式处理
-
 - 这样的情况下，性能就会受到严重影响，
-
 - 所以我们需要让其变成永远都不会成功响应式的数据，提高性能
-
-  ​
-
 - 当渲染具有不可变数据源的大列表时，跳过响应式可以提高性能
-
+  
   **举例： 使用动态组件与markRaw切换组件的案例**
 
 ```
- <template>
+<template>
   <div style="display: flex">
     <div v-for="(item, index) in data" :key="index"
          @click="switchCom(item, index)"
@@ -86,14 +81,9 @@ const data = reactive([
   cursor: pointer;
 }
 </style>
- 
 ```
 
-
-
 ### vue3.5+  watch 的三种方法？
-
-
 
 **onWatcherCleanup()**  简化清理逻辑
 
@@ -107,8 +97,6 @@ watch(id,(newId)=>{
     onWatchCleanUp(cancel);
 })
 ```
-
-
 
 watch 返回值，有了更加精细的控制
 
@@ -124,11 +112,7 @@ pause();
 resume();
 ```
 
-
-
 watch 可以指定层级， deep:2 ,3
-
-
 
 ### vue3多组件实例获取
 
@@ -143,8 +127,6 @@ const addRefs=(instance:HTMLDivElement)=>{elRefset.value.add(instance)
 const count =ref(8)
 </script>
 ```
-
-
 
 ### 在组件内部生成唯一id
 
@@ -174,4 +156,74 @@ document.querySelectorA1l(.${eleclass}.el-input`)
 <Component />
 </template>
 ```
+
+###关于  Vue 3.6 使用 Vue Vapor
+3.6 使用Vue Vapor
+
+Vapor 更新逻辑：
+类似于直接创建一个新的元素，数据更新 -》 dom直接改变，然后将改变的东西返回。
+
+```
+function _render() {
+  const t0 = template(`<div></div>`)  // 直接创建真实DOM
+  const n0 = child(t0, 0)            // 获取要更新的节点
+  
+  renderEffect(() => {
+    setText(n0, ctx.name)             // 数据变了直接更新DOM
+  })
+  
+  return t0
+}
+```
+
+但是原本的diff还是存在于 packages/runtime-vapor/src/apiCreateFor.ts
+里面
+
+```
+const renderList = () => {
+  if (getKey) {
+    // 这不就是传统的diff算法吗？！
+    let i = 0
+    let e1 = oldLength - 1
+    let e2 = newLength - 1
+
+    // 1. 从前面开始同步
+    while (i <= e1 && i <= e2) {
+      if (tryPatchIndex(source, i)) {
+        i++
+      } else {
+        break
+      }
+    }
+
+    // 2. 从后面开始同步
+    while (i <= e1 && i <= e2) {
+      if (tryPatchIndex(source, i)) {
+        e1--
+        e2--
+      } else {
+        break
+      }
+    }
+
+    // 3. 还有最长递增子序列优化！
+    const increasingNewIndexSequence = moved
+      ? getSequence(newIndexToOldIndexMap)
+      : []
+  }
+}
+```
+
+只是现在只有for循环会用到diff算法，为了使得节点增删改查更加流畅，不会使滚动丢失，状态丢失等。
+
+现在的更新：
+
+| 场景                      | Vapor的策略      | 原因                     |
+| --------------------------- | ------------------ | -------------------------- |
+| 简单绑定 `{{ name }}` | 直接更新，无diff | 编译时就能确定更新目标   |
+| 条件渲染 `v-if`       | 简单替换，无diff | 只需要显示/隐藏，不复杂  |
+| 列表渲染 `v-for`      | 保留diff算法     | 需要处理复杂的增删改移动 |
+
+
+
 
