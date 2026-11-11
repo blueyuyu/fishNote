@@ -30,7 +30,7 @@
 
 [学习路线](/ai/learnList.md)
 
-[AI 基础1](/ai/AgentBasic/basic1.md)
+[AI 名词解读](/ai/AgentBasic/basic1.md)
 
 
 ##  🧡  框架原理
@@ -83,11 +83,6 @@
 
 ---
 
-## 💚  副业注意事项
-
----
-
-[经验总结](/avocation/result.md)
 
 ## 💙  推荐学习项目目录（等待整理）
 
@@ -100,6 +95,7 @@
 ## 🐟  鱼鱼鱼的碎碎念~~~
 
 ---
+[日记记录 2026](/journal/blueMemory26.md)
 
 [日记记录 2025](/journal/blueMemory25.md)
 

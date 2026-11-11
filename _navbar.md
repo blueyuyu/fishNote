@@ -14,9 +14,7 @@
   * [Vue虚拟dom更新机制](/vuePrinciple/day02.md)
   * [虚拟dom的创建](/vuePrinciple/day03.md)
   * [vue-router实现原理](/vuePrinciple/day04.md)
-* 定价学习
-  
-  * [商品定价](/avocation/result.md)
+
 * 公司常用代码
   
   * [公司cv](/companyStudy/learning.md)
