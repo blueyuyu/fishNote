@@ -3,6 +3,8 @@
   * [学习路线](/ai/learnList.md)
 
   * [AI 基础1](/ai/AgentBasic/basic1.md)
+
+  * [AI](/ai/AgentBasic/sgStudy.md)
 * 面试题
   
   * [2024年收录前端面试题](/InterviewQuestions/Front-end-interview.md)
