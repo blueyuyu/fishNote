@@ -39,7 +39,21 @@ Runnable 是 LangChain 里最核心的抽象：**把一段可执行逻辑包装�
 
 （prompt、模型调用、检索、工具调用、校验）都是 Runnable
 
+用Runnable 的流程是这样的:
+分析流程，拆分原子步骤
+根据步骤之间的关系，选择对应Runableapi
+·统一调用(invoke、stream、batch)
 
+LCEL 的本质是：把流程拆成节点，再把节点组装成 chain。
 
+先分析步骤，再选 Runnable，而不是反过来。
 
+顺序用 Sequence，分支用 Branch，自定义逻辑用 Lambda，状态扩展用 assign。
 
+复杂流程要先设计 state。
+
+Agent 可以把“单轮 step”做成 chain，外层循环继续控制多轮。RAG 特别适合用 LCEL 表达。
+
+chain 写好后，还能方便加 retry、fallback、config 和 callbacks。
+
+LCEL 不是语法糖，而是一种声明式的流程组织方式。
